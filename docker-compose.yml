@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: zenth-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: zenth
+    ports:
+      - "5432:5432"
+    volumes:
+      - zenth_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d zenth"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  mongodb:
+    image: mongo:7.0
+    container_name: zenth-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: zenth
+    ports:
+      - "27017:27017"
+    volumes:
+      - zenth_mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  zenth_postgres_data:
+    name: zenth_postgres_data
+  zenth_mongodb_data:
+    name: zenth_mongodb_data

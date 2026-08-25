@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build & compilation outputs
+dist/
+*.tgz
+*.tar.gz
+
+# Environment files and credentials
+.env
+.env.*
+!.env.example
+
+# Logs and exported session logs
+*.log
+exported-logs/
+
+# Local databases & storage
+data/
+*.db
+*.sqlite
+
+# Agent, BMad, and internal AI documentation/configs
+docs/
+AGENTS.md
+.agent/
+.agents/
+_bmad/
+_bmad-output/
+skills-lock.json
+
+# Operating System & IDE artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
