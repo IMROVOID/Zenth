@@ -4,7 +4,7 @@ import { Hero } from '@/components/hero';
 
 export default function HomePage() {
   return (
-    <main className="h-[100dvh] max-h-[100dvh] sm:h-screen sm:max-h-screen w-full flex flex-col justify-between bg-[#0a0a0a] relative overflow-hidden selection:bg-emerald-500 selection:text-black">
+    <main className="fixed inset-0 w-full h-full h-[100dvh] max-h-[100dvh] flex flex-col justify-between bg-[#0a0a0a] overflow-hidden select-none selection:bg-emerald-500 selection:text-black">
       {/* Top Header Navigation */}
       <Header />
 
