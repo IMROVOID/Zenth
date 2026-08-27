@@ -34,3 +34,6 @@ skills-lock.json
 Thumbs.db
 .idea/
 .vscode/
+# Website Next.js build and export artifacts
+website/.next/
+website/out/

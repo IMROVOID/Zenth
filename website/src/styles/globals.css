@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ffffff;
+  }
+
+  body {
+    background-color: #0a0a0a;
+    color: var(--foreground);
+    overflow-x: hidden;
+  }
+}
+
+/* Subtle top-left square grid background */
+.bg-square-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Hero Title Word Capsule Animations - Continuous Downward Loop */
+@keyframes heroCapsuleLoopDownIn {
+  0% {
+    transform: translateY(-115%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-0.08em);
+    opacity: 1;
+  }
+}
+
+@keyframes heroCapsuleLoopDownOut {
+  0% {
+    transform: translateY(-0.08em);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(115%);
+    opacity: 0;
+  }
+}
+
+.animate-capsule-loop-in {
+  animation: heroCapsuleLoopDownIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.animate-capsule-loop-out {
+  animation: heroCapsuleLoopDownOut 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Capsule with greyscale gradient BG and top-fading border like reference */
+.hero-capsule-box {
+  background: 
+    linear-gradient(180deg, #202023 0%, #111113 100%) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 35%, transparent 70%) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Startup IN Entrance Animations (GPU Composited) */
+@keyframes startupHeaderDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes startupHeroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes startupChartFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-startup-header {
+  animation: startupHeaderDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-startup-title {
+  animation: startupHeroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+}
+
+.animate-startup-desc {
+  animation: startupHeroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+}
+
+.animate-startup-cta {
+  animation: startupHeroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+}
+
+.animate-startup-chart {
+  animation: startupChartFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.36s both;
+}
+
