@@ -37,7 +37,7 @@ export const siteMeta: SiteMetaConfig = {
     titleWords: ['Crypto', 'Stocks'],
     titleLine2: 'Self-Learning Crypto',
     description:
-      'Zenth is an autonomous self-learning cryptocurrency paper trading terminal featuring multi-exchange public feeds, pluggable memory, and institutional risk management.',
+      'Autonomous paper trading terminal with multi-exchange feeds, adaptive memory, and institutional risk management.',
     contactLabel: 'Get Started',
     languageLabel: 'EN',
   },

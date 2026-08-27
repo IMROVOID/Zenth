@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { siteConfig } from '@/config';
 import { HeroPillButton } from './HeroPillButton';
@@ -8,7 +10,7 @@ import { LightRay } from '@/components/effects';
 
 export function Hero() {
   return (
-    <section className="w-full flex-1 flex flex-col justify-between overflow-hidden px-6 sm:px-10 xl:px-14 pt-4 sm:pt-6 pb-2">
+    <section className="w-full flex-1 flex flex-col justify-between overflow-hidden px-2.5 sm:px-10 xl:px-14 pt-4 sm:pt-8 pb-2">
       {/* Standalone Hero Card matching Page BG and fitting viewport height */}
       <div className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1760px] mx-auto flex-1 flex flex-col justify-between relative rounded-[32px] sm:rounded-[40px] bg-transparent overflow-hidden">
         {/* 1. Foggy Volumetric LightRay with increased intensity */}
@@ -31,31 +33,31 @@ export function Hero() {
           aria-hidden="true"
         />
 
-        {/* 3. Hero Content: Clean top placement, font-medium title */}
-        <div className="relative z-10 pt-10 sm:pt-16 pb-3 px-6 flex flex-col items-center text-center">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-[3.8rem] font-medium tracking-tight leading-[1.15] max-w-4xl text-center animate-startup-title">
-            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-[#666666] via-[#ffffff] to-[#666666] pb-1">
+        {/* 3. Hero Content: Centered placement in dark midsection, font-medium title */}
+        <div className="relative z-10 pt-18 min-[380px]:pt-20 min-[420px]:pt-24 sm:pt-22 pb-2 px-1 sm:px-6 flex flex-col items-center text-center">
+          <h1 className="text-[clamp(1.22rem,5.4vw,1.72rem)] min-[390px]:text-[1.88rem] min-[420px]:text-[2.05rem] sm:text-5xl lg:text-6xl xl:text-[3.8rem] font-medium tracking-tight leading-[1.18] max-w-4xl text-center animate-startup-title">
+            <span className="block whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-b from-[#ffffff] via-[#f0f0f0] to-[#888888] pb-1">
               {siteConfig.hero.titleLine1}
             </span>
-            <span className="inline-flex items-center justify-center flex-wrap gap-x-3.5 sm:gap-x-4.5 gap-y-2 pt-1 pb-1">
-              <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#666666] via-[#ffffff] to-[#666666] pt-1 pb-2">
+            <span className="inline-flex items-center justify-center whitespace-nowrap gap-x-2.5 sm:gap-x-4.5 pt-1 pb-1">
+              <span className="inline-block bg-clip-text text-transparent bg-gradient-to-b from-[#ffffff] via-[#f0f0f0] to-[#888888] pt-1 pb-2">
                 {siteConfig.hero.titleLine2Prefix || 'Self-Learning'}
               </span>
               <HeroWordCapsule words={siteConfig.hero.titleWords || ['Crypto', 'Stocks']} />
             </span>
           </h1>
 
-          <p className="mt-2.5 max-w-2xl text-[#888888] text-sm sm:text-base font-normal leading-relaxed animate-startup-desc">
+          <p className="mt-2.5 sm:mt-3 max-w-xl text-[#b5b5b8] sm:text-[#888888] text-[13px] sm:text-base font-normal leading-snug sm:leading-relaxed px-1 sm:px-0 animate-startup-desc">
             {siteConfig.hero.description}
           </p>
 
-          {/* Action Buttons: Get Started + Documentation with Liquid Metal */}
-          <div className="mt-5 flex items-center justify-center gap-4 animate-startup-cta">
+          {/* Action Buttons: Vertically stacked on mobile, horizontal on desktop */}
+          <div className="mt-8 min-[380px]:mt-9 sm:mt-5 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-startup-cta">
             <HeroPillButton />
             <LiquidMetalButton
               text="Documentation"
               href="#docs"
-              width={146}
+              width={154}
               height={42}
             />
           </div>

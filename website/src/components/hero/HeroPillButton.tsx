@@ -4,13 +4,17 @@ import React from 'react';
 import Link from 'next/link';
 import { siteConfig } from '@/config';
 
-export function HeroPillButton() {
+export interface HeroPillButtonProps {
+  className?: string;
+}
+
+export function HeroPillButton({ className = '' }: HeroPillButtonProps) {
   return (
     <Link
       href={siteConfig.hero.badgeHref}
-      className="inline-flex items-center justify-center cursor-pointer group leading-none transition-transform active:scale-95"
+      className={`inline-flex items-center justify-center cursor-pointer group leading-none transition-transform active:scale-95 ${className}`.trim()}
     >
-      <span className="flex items-center gap-2.5 px-6 rounded-full bg-white hover:bg-neutral-100 transition-colors text-black leading-none h-[42px] box-border shadow-sm">
+      <span className="flex items-center justify-center gap-2.5 px-6 rounded-full bg-white hover:bg-neutral-100 transition-colors text-black leading-none h-[42px] w-[154px] sm:w-auto box-border shadow-sm">
         {/* Text */}
         <span className="text-sm font-semibold tracking-wide text-black">
           {siteConfig.hero.badgeText}

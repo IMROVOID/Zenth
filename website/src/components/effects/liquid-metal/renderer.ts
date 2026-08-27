@@ -74,7 +74,7 @@ export class LiquidMetalRenderer {
     });
     if (!gl) throw new Error('WebGL2 not supported');
     this.gl = gl;
-    this.hasFloat = !!gl.getExtension('EXT_color_buffer_half_float');
+    this.hasFloat = !!gl.getExtension('EXT_color_buffer_float') || !!gl.getExtension('EXT_color_buffer_half_float');
 
     this.programs = {
       scene: null,

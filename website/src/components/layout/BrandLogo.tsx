@@ -13,7 +13,7 @@ export function BrandLogo({
   className = '',
 }: BrandLogoProps) {
   return (
-    <div className={`flex items-center z-10 ${className}`.trim()}>
+    <div className={`flex items-center ${className || 'z-10'}`.trim()}>
       <Link href="/" className="flex items-center gap-2.5 group">
         <img
           src={logoSrc}

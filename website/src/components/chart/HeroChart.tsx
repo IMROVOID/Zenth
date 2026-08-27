@@ -8,7 +8,7 @@ export function HeroChart() {
 
   return (
     <div
-      className="relative w-full h-[340px] sm:h-[400px] lg:h-[460px] select-none pointer-events-none"
+      className="relative w-full h-[300px] min-[390px]:h-[335px] min-[430px]:h-[365px] sm:h-[400px] lg:h-[460px] select-none pointer-events-none"
       style={{
         maskImage:
           'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 3%, rgba(0,0,0,0.6) 8%, black 14%, black 86%, rgba(0,0,0,0.6) 92%, rgba(0,0,0,0.15) 97%, transparent 100%)',

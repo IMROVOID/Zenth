@@ -28,14 +28,14 @@
     opacity: 0;
   }
   100% {
-    transform: translateY(-0.08em);
+    transform: translateY(-0.04em);
     opacity: 1;
   }
 }
 
 @keyframes heroCapsuleLoopDownOut {
   0% {
-    transform: translateY(-0.08em);
+    transform: translateY(-0.04em);
     opacity: 1;
   }
   100% {
@@ -112,5 +112,45 @@
 
 .animate-startup-chart {
   animation: startupChartFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.36s both;
+}
+
+/* Mobile Menu Smooth Fade In and Out */
+@keyframes menuFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menuFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.animate-menu-in {
+  animation: menuFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-menu-out {
+  animation: menuFadeOut 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-menu-in,
+  .animate-menu-out {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 

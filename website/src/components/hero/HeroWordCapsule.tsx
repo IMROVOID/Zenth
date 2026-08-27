@@ -48,13 +48,13 @@ export function HeroWordCapsule({
 
   return (
     <span
-      className={`hero-capsule-box relative inline-grid grid-cols-1 grid-rows-1 place-items-center overflow-hidden rounded-full px-3.5 sm:px-4.5 lg:px-5 h-[1.16em] select-none text-[0.80em] sm:text-[0.83em] ${className}`}
+      className={`hero-capsule-box relative inline-grid grid-cols-1 grid-rows-1 place-items-center overflow-hidden rounded-full px-5 sm:px-5.5 h-[1.32em] sm:h-[1.26em] select-none text-[0.82em] sm:text-[0.84em] flex-shrink-0 align-middle ${className}`.trim()}
     >
       {/* Invisible anchor sizers: locks capsule width and height to max across all words */}
       {words.map((w) => (
         <span
           key={`sizer-${w}`}
-          className="invisible pointer-events-none select-none col-start-1 row-start-1 opacity-0 font-medium tracking-tight text-transparent leading-none -translate-y-[0.08em]"
+          className="invisible pointer-events-none select-none col-start-1 row-start-1 opacity-0 font-medium tracking-tight text-transparent leading-none -translate-y-[0.04em]"
           aria-hidden="true"
         >
           {w}
@@ -66,7 +66,7 @@ export function HeroWordCapsule({
         className={`col-start-1 row-start-1 w-full text-center font-medium tracking-tight leading-none bg-clip-text text-transparent bg-gradient-to-r from-[#909096] to-[#ffffff] ${
           isTransitioning
             ? 'animate-capsule-loop-out'
-            : '-translate-y-[0.08em] opacity-100'
+            : '-translate-y-[0.04em] opacity-100'
         }`}
       >
         {words[currentIndex]}

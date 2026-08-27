@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { getChartCurveY } from '@/lib/math';
 import { PIXEL_GRID_COLORS, PIXEL_GRID_DISABLED_COLOR } from './chartConstants';
 
@@ -10,7 +10,6 @@ export interface PixelGridProps {
 
 export function PixelGrid({ areaD }: PixelGridProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -134,19 +133,24 @@ export function PixelGrid({ areaD }: PixelGridProps) {
         }
       };
 
-      for (let k = 0; k < 4; k++) drawGroup(activeBuffers[k], PIXEL_GRID_COLORS[k]);
+      try {
+        for (let k = 0; k < 4; k++) drawGroup(activeBuffers[k], PIXEL_GRID_COLORS[k]);
 
-      if (pathClip && disabledBuffer.length > 0) {
-        ctx.save();
-        ctx.scale(scaleX, scaleY);
-        ctx.translate(0, 120);
-        ctx.clip(pathClip);
-        ctx.setTransform(1, 0, 0, 1, 0, 0);
-        drawGroup(disabledBuffer, PIXEL_GRID_DISABLED_COLOR);
-        ctx.restore();
+        if (pathClip && disabledBuffer.length > 0) {
+          ctx.save();
+          try {
+            ctx.scale(scaleX, scaleY);
+            ctx.translate(0, 120);
+            ctx.clip(pathClip);
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            drawGroup(disabledBuffer, PIXEL_GRID_DISABLED_COLOR);
+          } catch {} finally {
+            ctx.restore();
+          }
+        }
+      } catch (err) {
+        console.warn('PixelGrid render warning:', err);
       }
-
-      setIsLoaded(true);
     };
 
     rafId = requestAnimationFrame(render);
@@ -165,9 +169,7 @@ export function PixelGrid({ areaD }: PixelGridProps) {
   return (
     <canvas
       ref={canvasRef}
-      className={`absolute inset-0 w-full h-full select-none pointer-events-none z-0 block transition-opacity duration-300 ease-out ${
-        isLoaded ? 'opacity-100' : 'opacity-0'
-      }`}
+      className="absolute inset-0 w-full h-full select-none pointer-events-none z-0 block"
     />
   );
 }
