@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 
-interface HeroWordCapsuleProps {
+export interface HeroWordCapsuleProps {
   words: string[];
   intervalMs?: number;
   className?: string;
@@ -83,3 +83,5 @@ export function HeroWordCapsule({
     </span>
   );
 }
+
+export default HeroWordCapsule;

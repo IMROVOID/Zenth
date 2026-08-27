@@ -1,13 +1,12 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
-import { getChartCurveY } from './chartCurve';
+import { getChartCurveY } from '@/lib/math';
+import { PIXEL_GRID_COLORS, PIXEL_GRID_DISABLED_COLOR } from './chartConstants';
 
-interface PixelGridProps {
+export interface PixelGridProps {
   areaD: string;
 }
-
-const ACTIVE_COLORS = ['#4ADE80', '#34F59B', '#2CE88A', '#22E881'];
 
 export function PixelGrid({ areaD }: PixelGridProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -135,7 +134,7 @@ export function PixelGrid({ areaD }: PixelGridProps) {
         }
       };
 
-      for (let k = 0; k < 4; k++) drawGroup(activeBuffers[k], ACTIVE_COLORS[k]);
+      for (let k = 0; k < 4; k++) drawGroup(activeBuffers[k], PIXEL_GRID_COLORS[k]);
 
       if (pathClip && disabledBuffer.length > 0) {
         ctx.save();
@@ -143,7 +142,7 @@ export function PixelGrid({ areaD }: PixelGridProps) {
         ctx.translate(0, 120);
         ctx.clip(pathClip);
         ctx.setTransform(1, 0, 0, 1, 0, 0);
-        drawGroup(disabledBuffer, '#202422');
+        drawGroup(disabledBuffer, PIXEL_GRID_DISABLED_COLOR);
         ctx.restore();
       }
 

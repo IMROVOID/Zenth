@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useCallback, type ReactNode } from 'react';
 
-interface BorderProps {
+export interface BorderProps {
   children: ReactNode;
   className?: string;
   colors?: string[];
@@ -27,7 +27,7 @@ function getPerimeterPos(s: number) {
   }
 }
 
-export default function InteractiveBorder({
+export function InteractiveBorder({
   children,
   className = '',
 }: BorderProps) {
@@ -98,3 +98,5 @@ export default function InteractiveBorder({
     </div>
   );
 }
+
+export default InteractiveBorder;

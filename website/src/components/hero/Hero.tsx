@@ -1,10 +1,10 @@
 import React from 'react';
-import { siteConfig } from '../config';
+import { siteConfig } from '@/config';
 import { HeroPillButton } from './HeroPillButton';
-import { LiquidMetalButton } from './LiquidMetalButton';
-import { HeroChart } from './HeroChart';
-import LightRay from './LightRay';
 import { HeroWordCapsule } from './HeroWordCapsule';
+import { LiquidMetalButton } from '@/components/ui';
+import { HeroChart } from '@/components/chart';
+import { LightRay } from '@/components/effects';
 
 export function Hero() {
   return (
@@ -16,7 +16,7 @@ export function Hero() {
           className="absolute -top-10 -left-10 w-[500px] sm:w-[650px] h-[500px] sm:h-[650px] pointer-events-none z-[1]"
           aria-hidden="true"
         >
-          <LightRay color="#2CE88A" />
+          <LightRay color={siteConfig.theme?.accentColor || '#2CE88A'} />
         </div>
 
         {/* 2. Top-Left Greyscale Square Grid under the fog ray */}
@@ -69,3 +69,5 @@ export function Hero() {
     </section>
   );
 }
+
+export default Hero;

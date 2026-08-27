@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
-import { useLiquidMetal } from './liquid-metal/useLiquidMetal';
+import { useLiquidMetal } from '@/components/effects/liquid-metal/useLiquidMetal';
 
 export interface LiquidMetalButtonProps {
   text: string;
@@ -84,3 +84,5 @@ export function LiquidMetalButton({
 
   return content;
 }
+
+export default LiquidMetalButton;

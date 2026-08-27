@@ -1,5 +1,5 @@
 // Exact mathematical model of the HeroChart SVG spline
-interface BezierSegment {
+export interface BezierSegment {
   x0: number;
   y0: number;
   x1: number;
@@ -10,17 +10,17 @@ interface BezierSegment {
   y3: number;
 }
 
-interface LineSegment {
+export interface LineSegment {
   x0: number;
   x1: number;
   y: number;
 }
 
-type SplineSegment =
+export type SplineSegment =
   | ({ isBezier: false } & LineSegment)
   | ({ isBezier: true } & BezierSegment);
 
-const SPLINE_SEGMENTS: SplineSegment[] = [
+export const SPLINE_SEGMENTS: SplineSegment[] = [
   { isBezier: false, x0: 0, x1: 120, y: 280 },
   { isBezier: true, x0: 120, y0: 280, x1: 155, y1: 280, x2: 175, y2: 195, x3: 210, y3: 195 },
   { isBezier: false, x0: 210, x1: 255, y: 195 },
@@ -53,7 +53,7 @@ const SPLINE_SEGMENTS: SplineSegment[] = [
   { isBezier: false, x0: 1520, x1: 1600, y: 280 },
 ];
 
-function solveBezierT(x: number, seg: BezierSegment): number {
+export function solveBezierT(x: number, seg: BezierSegment): number {
   let low = 0;
   let high = 1;
   for (let i = 0; i < 14; i++) {
@@ -73,7 +73,7 @@ function solveBezierT(x: number, seg: BezierSegment): number {
   return (low + high) * 0.5;
 }
 
-function evalBezierY(t: number, seg: BezierSegment): number {
+export function evalBezierY(t: number, seg: BezierSegment): number {
   const inv = 1 - t;
   return (
     inv * inv * inv * seg.y0 +

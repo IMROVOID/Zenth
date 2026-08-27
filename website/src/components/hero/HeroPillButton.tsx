@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { siteConfig } from '../config';
+import { siteConfig } from '@/config';
 
 export function HeroPillButton() {
   return (
@@ -35,3 +35,5 @@ export function HeroPillButton() {
     </Link>
   );
 }
+
+export default HeroPillButton;

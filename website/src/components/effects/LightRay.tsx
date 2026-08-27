@@ -1,11 +1,12 @@
 import React from 'react';
+import { themeConfig } from '@/config';
 
-interface LightRayProps {
+export interface LightRayProps {
   className?: string;
   color?: string;
 }
 
-export default function LightRay({ className = '' }: LightRayProps) {
+export function LightRay({ className = '', color = themeConfig.accentColor }: LightRayProps) {
   return (
     <div
       className={`w-full h-full pointer-events-none blur-[16px] select-none ${className}`.trim()}
@@ -28,3 +29,5 @@ export default function LightRay({ className = '' }: LightRayProps) {
     </div>
   );
 }
+
+export default LightRay;
