@@ -9,7 +9,7 @@ export interface BrandLogoProps {
 
 export function BrandLogo({
   name = 'Zenth',
-  logoSrc = '/logo.svg',
+  logoSrc = '/images/logo.svg',
   className = '',
 }: BrandLogoProps) {
   return (

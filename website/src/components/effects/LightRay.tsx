@@ -18,7 +18,7 @@ export function LightRay({ className = '', color = themeConfig.accentColor }: Li
       }}
     >
       <img
-        src="/light-ray.webp"
+        src="/images/light-ray.webp"
         alt=""
         aria-hidden="true"
         fetchPriority="high"

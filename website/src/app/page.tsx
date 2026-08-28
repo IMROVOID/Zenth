@@ -1,15 +1,24 @@
 import React from 'react';
 import { Header } from '@/components/layout';
 import { Hero } from '@/components/hero';
+import { WhatIsZenth } from '@/components/what-is-zenth';
+import { HowItWorks } from '@/components/how-it-works';
 
 export default function HomePage() {
   return (
-    <main className="fixed inset-0 w-full h-full h-[100dvh] max-h-[100dvh] flex flex-col justify-between bg-[#0a0a0a] overflow-hidden select-none selection:bg-emerald-500 selection:text-black">
+    <main className="w-full min-h-screen flex flex-col bg-[#0a0a0a] overflow-x-hidden selection:bg-emerald-500 selection:text-black">
       {/* Top Header Navigation */}
       <Header />
 
       {/* Main Hero Section */}
       <Hero />
+
+      {/* What is Zenth Product Showcase Section */}
+      <WhatIsZenth />
+
+      {/* How it Works Autonomous Signal-to-Execution Pipeline Section */}
+      <HowItWorks />
     </main>
   );
 }
+

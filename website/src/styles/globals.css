@@ -6,16 +6,17 @@
     --foreground: #ffffff;
   }
 
-  html,
+  html {
+    scroll-behavior: smooth;
+    background-color: #0a0a0a;
+    color: var(--foreground);
+  }
+
   body {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    height: 100dvh;
-    max-height: 100dvh;
-    overflow: hidden;
-    overscroll-behavior: none;
+    min-height: 100%;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
     background-color: #0a0a0a;
     color: var(--foreground);
   }
@@ -59,13 +60,13 @@
   animation: heroCapsuleLoopDownOut 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Capsule with greyscale gradient BG and top-fading border like reference */
+/* Capsule with side-box radial gradient BG and top-fading border */
 .hero-capsule-box {
   background: 
-    linear-gradient(180deg, #202023 0%, #111113 100%) padding-box,
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 35%, transparent 70%) border-box;
+    radial-gradient(130% 120% at 50% 0%, #1e1e23 0%, #111114 45%, #08080a 100%) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.03) 40%, transparent 100%) border-box;
   border: 1px solid transparent;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.85), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 /* Startup IN Entrance Animations (GPU Composited) */
@@ -153,9 +154,24 @@
   animation: menuFadeOut 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* CRT Screen Sweeping Refresh Beam */
+@keyframes crtScanBeam {
+  0% {
+    top: -20%;
+  }
+  100% {
+    top: 120%;
+  }
+}
+
+.animate-crt-scan {
+  animation: crtScanBeam 7s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-menu-in,
-  .animate-menu-out {
+  .animate-menu-out,
+  .animate-crt-scan {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;

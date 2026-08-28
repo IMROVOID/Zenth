@@ -1,8 +1,8 @@
-import { siteMeta, type HeroConfig, type SiteMetaConfig } from './site';
+import { siteMeta, type HeroConfig, type SiteMetaConfig, type WhatIsZenthConfig } from './site';
 import { navItems, exchanges, type NavItem, type ExchangeItem } from './navigation';
 import { themeConfig, type ThemeConfig } from './theme';
 
-export type { NavItem, ExchangeItem, HeroConfig, SiteMetaConfig, ThemeConfig };
+export type { NavItem, ExchangeItem, HeroConfig, SiteMetaConfig, ThemeConfig, WhatIsZenthConfig };
 export { siteMeta, navItems, exchanges, themeConfig };
 
 export const siteConfig = {

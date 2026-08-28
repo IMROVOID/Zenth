@@ -10,6 +10,27 @@ export interface HeroConfig {
   languageLabel: string;
 }
 
+export interface WhatIsZenthConfig {
+  title: string;
+  subtitle: string;
+  videoSrc: string;
+  terminalTitle: string;
+}
+
+export interface HowItWorksStatItem {
+  label: string;
+  value: string;
+  subtext?: string;
+}
+
+export interface HowItWorksConfig {
+  pillText: string;
+  title: string;
+  subtitle: string;
+  leftStats: HowItWorksStatItem[];
+  rightStats: HowItWorksStatItem[];
+}
+
 export interface SiteMetaConfig {
   name: string;
   siteOrigin: string;
@@ -19,6 +40,8 @@ export interface SiteMetaConfig {
   installCommand: string;
   repoUrl: string;
   hero: HeroConfig;
+  whatIsZenth: WhatIsZenthConfig;
+  howItWorks: HowItWorksConfig;
 }
 
 export const siteMeta: SiteMetaConfig = {
@@ -41,4 +64,42 @@ export const siteMeta: SiteMetaConfig = {
     contactLabel: 'Get Started',
     languageLabel: 'EN',
   },
+  whatIsZenth: {
+    title: 'What is Zenth',
+    subtitle:
+      'An autonomous paper trading terminal engineered for precision market simulation. Connected to live XT.com candlestick feeds and Supabase PostgreSQL memory, Zenth runs continuous self-learning indicator loops with zero human intervention.',
+    videoSrc: '/videos/Zenth-V1.0.0.mp4',
+    terminalTitle: 'zenth-tui v1.0.0 — LIVE STREAM',
+  },
+  howItWorks: {
+    pillText: 'Autonomous Execution Pipeline',
+    title: 'From Market Signal to Execution in Milliseconds',
+    subtitle:
+      'Zenth continuously ingests live candlestick feeds, computes multi-timeframe indicators, and triggers optimal Buy and Sell positions with zero-delay risk checks.',
+    leftStats: [
+      {
+        label: 'Candlestick Ingestion',
+        value: '50B+',
+        subtext: '5s Interval Feeds',
+      },
+      {
+        label: 'Adaptive Risk Rules',
+        value: '55+',
+        subtext: 'Drawdown Guard < 3.5%',
+      },
+    ],
+    rightStats: [
+      {
+        label: 'Active Indicator Loops',
+        value: '70+',
+        subtext: 'SMA 9/21 + RSI 14',
+      },
+      {
+        label: 'Order Execution Speed',
+        value: '< 12ms',
+        subtext: 'Simulated Paper Mode',
+      },
+    ],
+  },
 };
+

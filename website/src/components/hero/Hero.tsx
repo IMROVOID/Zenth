@@ -10,7 +10,7 @@ import { LightRay } from '@/components/effects';
 
 export function Hero() {
   return (
-    <section className="w-full flex-1 flex flex-col justify-between overflow-hidden px-2.5 sm:px-10 xl:px-14 pt-4 sm:pt-8 pb-2">
+    <section className="w-full min-h-[calc(100dvh-5rem)] flex-1 flex flex-col justify-between overflow-hidden px-2.5 sm:px-10 xl:px-14 pt-4 sm:pt-8 pb-2">
       {/* Standalone Hero Card matching Page BG and fitting viewport height */}
       <div className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1760px] mx-auto flex-1 flex flex-col justify-between relative rounded-[32px] sm:rounded-[40px] bg-transparent overflow-hidden">
         {/* 1. Foggy Volumetric LightRay with increased intensity */}
