@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from '@/components/layout';
 import { Hero } from '@/components/hero';
 import { WhatIsZenth } from '@/components/what-is-zenth';
+import { KeyFeatures } from '@/components/key-features';
 import { HowItWorks } from '@/components/how-it-works';
 
 export default function HomePage() {
@@ -18,6 +19,9 @@ export default function HomePage() {
 
       {/* How it Works Autonomous Signal-to-Execution Pipeline Section */}
       <HowItWorks />
+
+      {/* Key Features Bento Section */}
+      <KeyFeatures />
     </main>
   );
 }
