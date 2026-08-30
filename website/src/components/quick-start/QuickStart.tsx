@@ -1,0 +1,66 @@
+'use client';
+
+import React from 'react';
+import { QuickStartHeading } from './QuickStartHeading';
+import { InstallCommandTabs } from './InstallCommandTabs';
+import { QuickStartStepsGrid } from './QuickStartStepsGrid';
+import { DocsCtaCard } from './DocsCtaCard';
+import { QuickStartProps } from './types';
+
+export function QuickStart({ className = '' }: QuickStartProps) {
+  return (
+    <section
+      id="quickstart"
+      className={`relative w-full py-16 sm:py-24 px-3 sm:px-10 xl:px-14 bg-[#0a0a0a] overflow-hidden ${className}`.trim()}
+    >
+      {/* Background Decorative Ambient Radial Glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] sm:w-[1200px] h-[500px] sm:h-[800px] pointer-events-none z-0 opacity-35 filter blur-[100px]"
+        style={{
+          background:
+            'radial-gradient(ellipse at center, rgba(34, 197, 94, 0.12) 0%, rgba(16, 185, 129, 0.05) 45%, transparent 75%)',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Grid Pattern Background with Smooth Side & Top Edge Radial Fade */}
+      <div
+        className="absolute inset-0 w-full h-full bg-square-grid pointer-events-none opacity-30 z-0"
+        style={{
+          maskImage:
+            'radial-gradient(ellipse 78% 70% at 50% 50%, black 35%, rgba(0,0,0,0.6) 65%, transparent 95%)',
+          WebkitMaskImage:
+            'radial-gradient(ellipse 78% 70% at 50% 50%, black 35%, rgba(0,0,0,0.6) 65%, transparent 95%)',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Top Edge Transition Gradient smoothly blending into previous section */}
+      <div
+        className="absolute top-0 left-0 right-0 h-24 sm:h-36 pointer-events-none z-0"
+        style={{
+          background:
+            'linear-gradient(to bottom, #0a0a0a 0%, rgba(10,10,10,0.8) 40%, transparent 100%)',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Section Content Container */}
+      <div className="relative z-10 w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1760px] mx-auto flex flex-col items-center">
+        {/* Section Heading */}
+        <QuickStartHeading />
+
+        {/* Tabbed Interactive CLI Installation Terminal */}
+        <InstallCommandTabs />
+
+        {/* 3-Step Guided Workflow Cards */}
+        <QuickStartStepsGrid />
+
+        {/* Comprehensive Documentation Banner */}
+        <DocsCtaCard />
+      </div>
+    </section>
+  );
+}
+
+export default QuickStart;

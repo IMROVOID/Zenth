@@ -158,7 +158,7 @@ export function MobileMenu({
         <GithubStarBadge size="lg" />
         <LiquidMetalButton
           text="Get Started"
-          href="#start"
+          href="#quickstart"
           height={44}
           width={150}
           onClick={onClose}

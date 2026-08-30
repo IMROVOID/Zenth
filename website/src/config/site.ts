@@ -69,7 +69,7 @@ export const siteMeta: SiteMetaConfig = {
   repoUrl: 'https://github.com/IMROVOID/Zenth',
   hero: {
     badgeText: 'Get Started',
-    badgeHref: '#terminal',
+    badgeHref: '#quickstart',
     titleLine1: 'Autonomous Platform for',
     titleLine2Prefix: 'Self-Learning',
     titleWords: ['Crypto', 'Stocks'],

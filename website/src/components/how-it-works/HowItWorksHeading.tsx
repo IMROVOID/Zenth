@@ -19,7 +19,7 @@ export function HowItWorksHeading({ className = '' }: HowItWorksHeadingProps) {
       <HowItWorksPill text={howItWorks.pillText} className="mb-4 sm:mb-6" />
 
       {/* Main Section Title (White-Grey Gradient matching other sections) */}
-      <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.12]">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[68px] 2xl:text-7xl font-medium tracking-tight leading-[1.1]">
         <span className="bg-clip-text text-transparent bg-gradient-to-b from-[#ffffff] via-[#f0f0f0] to-[#888888]">
           {howItWorks.title}
         </span>

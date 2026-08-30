@@ -22,6 +22,35 @@
   }
 }
 
+/* Global Stylized Slim Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 /* Subtle top-left square grid background */
 .bg-square-grid {
   background-size: 40px 40px;
@@ -30,27 +59,15 @@
     linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 
-/* Hero Title Word Capsule Animations - Continuous Downward Loop */
+/* Hero Title Word Capsule Animations */
 @keyframes heroCapsuleLoopDownIn {
-  0% {
-    transform: translateY(-115%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(-0.04em);
-    opacity: 1;
-  }
+  0% { transform: translateY(-115%); opacity: 0; }
+  100% { transform: translateY(-0.04em); opacity: 1; }
 }
 
 @keyframes heroCapsuleLoopDownOut {
-  0% {
-    transform: translateY(-0.04em);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(115%);
-    opacity: 0;
-  }
+  0% { transform: translateY(-0.04em); opacity: 1; }
+  100% { transform: translateY(115%); opacity: 0; }
 }
 
 .animate-capsule-loop-in {
@@ -69,99 +86,106 @@
   box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.85), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
 }
 
+/* Modal & Overlay Smooth Transitions */
+@keyframes overlayFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes overlayFadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes modalScaleIn {
+  0% { opacity: 0; transform: scale(0.96) translateY(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes modalScaleOut {
+  0% { opacity: 1; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(0.96) translateY(8px); }
+}
+
+@keyframes tabContentFade {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-overlay-in {
+  animation: overlayFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-overlay-out {
+  animation: overlayFadeOut 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-modal-card-in {
+  animation: modalScaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-modal-card-out {
+  animation: modalScaleOut 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-tab-content {
+  animation: tabContentFade 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 /* Startup IN Entrance Animations (GPU Composited) */
 @keyframes startupHeaderDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-14px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(-14px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes startupHeroFadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes startupChartFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(14px) scale(0.99);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  0% { opacity: 0; transform: translateY(14px) scale(0.99); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .animate-startup-header {
   animation: startupHeaderDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-
 .animate-startup-title {
   animation: startupHeroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
 }
-
 .animate-startup-desc {
   animation: startupHeroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
 }
-
 .animate-startup-cta {
   animation: startupHeroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
 }
-
 .animate-startup-chart {
   animation: startupChartFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.36s both;
 }
 
 /* Mobile Menu Smooth Fade In and Out */
 @keyframes menuFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(-8px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes menuFadeOut {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-8px); }
 }
 
 .animate-menu-in {
   animation: menuFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-
 .animate-menu-out {
   animation: menuFadeOut 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* CRT Screen Sweeping Refresh Beam */
 @keyframes crtScanBeam {
-  0% {
-    top: -20%;
-  }
-  100% {
-    top: 120%;
-  }
+  0% { top: -20%; }
+  100% { top: 120%; }
 }
 
 .animate-crt-scan {
@@ -171,10 +195,14 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-menu-in,
   .animate-menu-out,
+  .animate-overlay-in,
+  .animate-overlay-out,
+  .animate-modal-card-in,
+  .animate-modal-card-out,
+  .animate-tab-content,
   .animate-crt-scan {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
 }
-

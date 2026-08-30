@@ -1,9 +1,10 @@
 import React from 'react';
-import { Header } from '@/components/layout';
+import { Header, Footer } from '@/components/layout';
 import { Hero } from '@/components/hero';
 import { WhatIsZenth } from '@/components/what-is-zenth';
 import { KeyFeatures } from '@/components/key-features';
 import { HowItWorks } from '@/components/how-it-works';
+import { QuickStart } from '@/components/quick-start';
 
 export default function HomePage() {
   return (
@@ -22,6 +23,12 @@ export default function HomePage() {
 
       {/* Key Features Bento Section */}
       <KeyFeatures />
+
+      {/* Quick Start / Installation Section */}
+      <QuickStart />
+
+      {/* Bottom Footer Section */}
+      <Footer />
     </main>
   );
 }

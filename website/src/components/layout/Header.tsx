@@ -52,7 +52,7 @@ export function Header({ className = '' }: HeaderProps) {
           {/* Liquid Metal Get Started Button */}
           <LiquidMetalButton
             text="Get Started"
-            href="#start"
+            href="#quickstart"
             height={38}
             width={116}
           />
