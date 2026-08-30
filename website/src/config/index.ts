@@ -14,6 +14,7 @@ import {
   type FooterLinkItem,
   type FooterColumnItem,
 } from './footer';
+import { faqConfig, type FaqConfig, type FaqItem } from './faq';
 
 export type {
   NavItem,
@@ -29,12 +30,23 @@ export type {
   FooterConfig,
   FooterLinkItem,
   FooterColumnItem,
+  FaqConfig,
+  FaqItem,
 };
-export { siteMeta, navItems, exchanges, themeConfig, quickStartConfig, footerConfig };
+export {
+  siteMeta,
+  navItems,
+  exchanges,
+  themeConfig,
+  quickStartConfig,
+  footerConfig,
+  faqConfig,
+};
 
 export const siteConfig = {
   ...siteMeta,
   quickStart: quickStartConfig,
+  faq: faqConfig,
   footer: footerConfig,
   navItems,
   exchanges,

@@ -5,6 +5,7 @@ import { WhatIsZenth } from '@/components/what-is-zenth';
 import { KeyFeatures } from '@/components/key-features';
 import { HowItWorks } from '@/components/how-it-works';
 import { QuickStart } from '@/components/quick-start';
+import { Faq } from '@/components/faq';
 
 export default function HomePage() {
   return (
@@ -26,6 +27,9 @@ export default function HomePage() {
 
       {/* Quick Start / Installation Section */}
       <QuickStart />
+
+      {/* Frequently Asked Questions Section */}
+      <Faq />
 
       {/* Bottom Footer Section */}
       <Footer />

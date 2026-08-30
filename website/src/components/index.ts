@@ -7,5 +7,6 @@ export * from './what-is-zenth';
 export * from './key-features';
 export * from './how-it-works';
 export * from './quick-start';
+export * from './faq';
 
 

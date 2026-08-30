@@ -59,6 +59,7 @@ export const footerConfig: FooterConfig = {
         { label: 'Signal Pipeline', href: '#how-it-works' },
         { label: 'Core Capabilities', href: '#features' },
         { label: 'Quick Installation', href: '#quickstart' },
+        { label: 'Frequently Asked Questions', href: '#faq' },
         { label: 'Multi-Format Exporter', href: '#features', badge: 'PDF/DOCX' },
       ],
     },
