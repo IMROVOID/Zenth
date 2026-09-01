@@ -31,9 +31,14 @@ if (primaryIp && process.env.NODE_ENV !== 'production') {
 }
 
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
+const repoName = 'Zenth';
+
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
+  basePath: isProd ? `/${repoName}` : '',
+  assetPrefix: isProd ? `/${repoName}/` : '',
   images: {
     unoptimized: true,
   },
