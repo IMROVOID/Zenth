@@ -1,3 +1,5 @@
+import { assetPath } from './assets';
+
 export interface HeroConfig {
   badgeText: string;
   badgeHref: string;
@@ -83,7 +85,7 @@ export const siteMeta: SiteMetaConfig = {
     title: 'What is Zenth',
     subtitle:
       'An autonomous paper trading terminal engineered for precision market simulation. Connected to live XT.com candlestick feeds and Supabase PostgreSQL memory, Zenth runs continuous self-learning indicator loops with zero human intervention.',
-    videoSrc: '/videos/Zenth-V1.0.0.mp4',
+    videoSrc: assetPath('/videos/Zenth-V1.0.0.mp4'),
     terminalTitle: 'zenth-tui v1.0.0 — LIVE STREAM',
   },
   keyFeatures: {

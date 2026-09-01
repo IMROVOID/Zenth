@@ -2,10 +2,11 @@ import React from 'react';
 import { BrandLogo } from '../BrandLogo';
 import { GithubStarBadge } from '../GithubStarBadge';
 import { FooterBrandProps } from './types';
+import { imagePath } from '@/config/assets';
 
 export function FooterBrand({
   name = 'Zenth',
-  logoSrc = '/images/logo.svg',
+  logoSrc = imagePath('logo.svg'),
   tagline = 'Autonomous self-learning cryptocurrency paper trading terminal with multi-exchange feeds, adaptive memory, and institutional risk management.',
   badges = ['[v1.0.1]', '[PAPER_ONLY]', '[GPL-3.0]'],
   repoUrl = 'https://github.com/IMROVOID/Zenth',

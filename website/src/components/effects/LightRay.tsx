@@ -1,5 +1,6 @@
 import React from 'react';
 import { themeConfig } from '@/config';
+import { imagePath } from '@/config/assets';
 
 export interface LightRayProps {
   className?: string;
@@ -18,7 +19,7 @@ export function LightRay({ className = '', color = themeConfig.accentColor }: Li
       }}
     >
       <img
-        src="/images/light-ray.webp"
+        src={imagePath('light-ray.webp')}
         alt=""
         aria-hidden="true"
         fetchPriority="high"

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import '../styles/globals.css';
 import { seoMeta, canonicalUrl, getSoftwareAppSchema } from '@/config/seo';
+import { assetPath } from '@/config/assets';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-sans' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], display: 'swap', variable: '--font-mono' });
@@ -43,10 +44,10 @@ export const metadata: Metadata = {
     images: [seoMeta.ogImage.url],
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/images/logo.svg',
+    icon: assetPath('/favicon.ico'),
+    apple: assetPath('/images/logo.svg'),
   },
-  manifest: '/manifest.webmanifest',
+  manifest: assetPath('/manifest.webmanifest'),
 };
 
 const ldJson = JSON.stringify(getSoftwareAppSchema());
