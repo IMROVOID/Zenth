@@ -6,19 +6,25 @@ export interface BrandLogoProps {
   href?: string;
   logoSrc?: string;
   className?: string;
+  themeAdaptive?: boolean;
 }
 
 export function BrandLogo({
   name = 'Zenth',
-  href = '/documentation/',
+  href = '/',
   logoSrc,
   className = '',
+  themeAdaptive = false,
 }: BrandLogoProps) {
+  const color = themeAdaptive
+    ? 'var(--docs-text-primary, rgb(242, 240, 236))'
+    : 'rgb(242, 240, 236)';
+
   return (
     <div className={`flex items-center ${className || 'z-10'}`.trim()}>
       <Link
         href={href}
-        style={{ color: 'var(--docs-text-primary, rgb(242, 240, 236))' }}
+        style={{ color }}
         className="flex items-center gap-2.5 group transition-colors"
       >
         {/* Crisp Vector Logo SVG inheriting exact text color */}

@@ -49,7 +49,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="min-h-screen w-full bg-[var(--docs-bg-primary,rgb(16,16,16))] text-[var(--docs-text-primary,rgb(242,240,236))] font-sans antialiased">
+      <body className="min-h-screen w-full bg-[#0a0a0a] text-[#f2f0ec] font-sans antialiased">
         {children}
       </body>
     </html>

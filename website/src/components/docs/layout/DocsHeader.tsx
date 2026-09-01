@@ -51,7 +51,7 @@ export function DocsHeader({
     >
       {/* Left: Brand Logo & Compact [DOCS] Badge */}
       <div className="flex items-center gap-2.5">
-        <BrandLogo href="/documentation/" className="scale-95 sm:scale-100 origin-left" />
+        <BrandLogo href="/documentation/" themeAdaptive={true} className="scale-95 sm:scale-100 origin-left" />
         <Link
           href="/documentation/"
           style={{
