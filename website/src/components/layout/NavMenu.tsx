@@ -13,7 +13,7 @@ export function NavMenu({ items = navItems, className = '' }: NavMenuProps) {
       className={`hidden md:flex items-center gap-5 lg:gap-6 xl:gap-7 text-sm font-medium absolute left-1/2 -translate-x-1/2 ${className}`.trim()}
     >
       {items.map((item) => {
-        const isExternal = item.href.startsWith('http');
+        const isExternal = item.href.startsWith('http') || item.href.startsWith('/doc');
         return (
           <Link
             key={item.label}

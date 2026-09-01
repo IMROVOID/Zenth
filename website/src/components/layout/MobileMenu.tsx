@@ -137,7 +137,7 @@ export function MobileMenu({
       {/* Nav Links */}
       <nav className="flex flex-col items-center justify-center gap-7 my-auto py-6">
         {items.map((item) => {
-          const isExternal = item.href.startsWith('http');
+          const isExternal = item.href.startsWith('http') || item.href.startsWith('/doc');
           return (
             <Link
               key={item.label}

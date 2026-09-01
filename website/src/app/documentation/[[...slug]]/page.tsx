@@ -1,57 +1,70 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { allDocPages, getDocBySlug, getAllDocSlugs } from '@/config/docs';
+import { getDocBySlug, getAllDocSlugs } from '@/config/docs';
 import { DocsPageView } from '@/components/docs';
+import { seoMeta, canonicalUrl, getBreadcrumbSchema } from '@/config/seo';
 
 export async function generateStaticParams() {
-  const slugs = getAllDocSlugs();
-  return [
-    { slug: [] },
-    ...slugs.map((slug) => ({
-      slug: [slug],
-    })),
-  ];
+  return [{ slug: [] }, ...getAllDocSlugs().map((slug) => ({ slug: [slug] }))];
 }
 
-interface DocumentationPageProps {
-  params: Promise<{
-    slug?: string[];
-  }>;
+interface PageProps {
+  params: Promise<{ slug?: string[] }>;
 }
 
-export async function generateMetadata({
-  params,
-}: DocumentationPageProps): Promise<Metadata> {
-  const resolvedParams = await params;
-  // If multi-segment or unknown, handle gracefully
-  if (resolvedParams.slug && resolvedParams.slug.length > 1) {
-    return { title: 'Not Found — Zenth Documentation' };
-  }
-  const currentSlug = resolvedParams.slug?.[0] || 'overview';
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug: segments } = await params;
+  if (segments && segments.length > 1) return { title: 'Not Found' };
+  const currentSlug = segments?.[0] || 'overview';
   const doc = getDocBySlug(currentSlug);
-  if (!doc) {
-    return { title: 'Not Found — Zenth Documentation' };
-  }
+  if (!doc) return { title: 'Not Found' };
+
+  const url = canonicalUrl(`/documentation/${currentSlug === 'overview' ? '' : currentSlug + '/'}`);
+  const title = `${doc.title} - Zenth Docs`;
 
   return {
-    title: `${doc.title} — Zenth Documentation`,
+    title,
     description: doc.subtitle,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'article',
+      url,
+      title,
+      description: doc.subtitle,
+      siteName: seoMeta.siteName,
+      locale: seoMeta.locale,
+      images: [seoMeta.ogImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: doc.subtitle,
+      creator: seoMeta.twitterHandle,
+      images: [seoMeta.ogImage.url],
+    },
   };
 }
 
-export default async function DocumentationPage({
-  params,
-}: DocumentationPageProps) {
-  const resolvedParams = await params;
-  if (resolvedParams.slug && resolvedParams.slug.length > 1) {
-    notFound();
-  }
-  const currentSlug = resolvedParams.slug?.[0] || 'overview';
+export default async function DocumentationPage({ params }: PageProps) {
+  const { slug: segments } = await params;
+  if (segments && segments.length > 1) notFound();
+  const currentSlug = segments?.[0] || 'overview';
   const doc = getDocBySlug(currentSlug);
-  if (!doc) {
-    notFound();
-  }
+  if (!doc) notFound();
 
-  return <DocsPageView page={doc} />;
+  const breadcrumbLd = JSON.stringify(
+    getBreadcrumbSchema([
+      { name: 'Home', href: '/' },
+      { name: 'Documentation', href: '/documentation/' },
+      { name: doc.title, href: `/documentation/${currentSlug === 'overview' ? '' : currentSlug + '/'}` },
+    ])
+  );
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbLd }} />
+      <DocsPageView page={doc} />
+    </>
+  );
 }

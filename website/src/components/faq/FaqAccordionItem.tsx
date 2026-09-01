@@ -72,16 +72,19 @@ export function FaqAccordionItem({
         </div>
       </button>
 
-      {/* Expandable Answer Content Container */}
+      {/* Expandable Answer Content Container with Smooth Bezier Grid Transition */}
       <div
         id={contentId}
         role="region"
         aria-labelledby={headerId}
-        className={`relative z-10 grid transition-[grid-template-rows,opacity] duration-300 ease-out px-4 sm:px-5 lg:px-6 ${
-          isOpen ? 'grid-rows-[1fr] opacity-100 pb-5 sm:pb-6' : 'grid-rows-[0fr] opacity-0 pb-0'
+        style={{
+          transition: 'grid-template-rows 320ms cubic-bezier(0.16, 1, 0.3, 1), opacity 260ms ease',
+        }}
+        className={`relative z-10 grid px-4 sm:px-5 lg:px-6 ${
+          isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'
         }`}
       >
-        <div className="overflow-hidden flex flex-col gap-3">
+        <div className="overflow-hidden flex flex-col gap-3 pb-5 sm:pb-6">
           <div className="h-[1px] w-full bg-white/10" />
 
           {/* Answer Body */}

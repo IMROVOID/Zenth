@@ -35,7 +35,7 @@ export function DocsLayout({ activeSlug, sections, children }: DocsLayoutProps) 
     <DocsThemeProvider>
       <div
         style={{ backgroundColor: 'var(--docs-bg-primary, rgb(16, 16, 16))' }}
-        className="w-full min-h-screen flex flex-col text-[var(--docs-text-primary,rgb(242,240,236))] antialiased selection:bg-[var(--docs-selection-bg,rgb(51,51,51))] selection:text-[var(--docs-selection-text,rgb(255,255,255))]"
+        className="docs-layout w-full min-h-screen flex flex-col text-[var(--docs-text-primary,rgb(242,240,236))] antialiased selection:bg-[var(--docs-selection-bg,rgb(51,51,51))] selection:text-[var(--docs-selection-text,rgb(255,255,255))]"
       >
         {/* Sticky Top Header (Pinned to Viewport) */}
         <DocsHeader

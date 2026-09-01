@@ -2,16 +2,37 @@
 @import "./theme.css";
 @import "./animations.css";
 
-* { scrollbar-width: thin; scrollbar-color: var(--docs-scrollbar-thumb, rgba(255, 255, 255, 0.18)) transparent; }
-::-webkit-scrollbar { width: 0.3125rem; height: 0.3125rem; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb {
-  background: var(--docs-scrollbar-thumb, rgba(255, 255, 255, 0.16));
-  border-radius: 9999px;
+html {
+  color-scheme: dark;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #383838 #0a0a0a;
+}
+
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: #0a0a0a; }
+*::-webkit-scrollbar-thumb {
+  background: #383838;
+  border-radius: 4px;
   transition: background-color 0.2s ease;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--docs-scrollbar-thumb-hover, rgba(255, 255, 255, 0.35)); }
-::-webkit-scrollbar-corner { background: transparent; }
+*::-webkit-scrollbar-thumb:hover { background: #555555; }
+*::-webkit-scrollbar-corner { background: #0a0a0a; }
+
+/* Light mode scrollbars scoped strictly to documentation container */
+html.light .docs-layout {
+  color-scheme: light;
+}
+html.light .docs-layout,
+html.light .docs-layout * {
+  scrollbar-color: #c4c1bb #f5f5f5;
+}
+html.light .docs-layout *::-webkit-scrollbar-track { background: #f5f5f5; }
+html.light .docs-layout *::-webkit-scrollbar-thumb { background: #c4c1bb; }
+html.light .docs-layout *::-webkit-scrollbar-thumb:hover { background: #999999; }
+html.light .docs-layout *::-webkit-scrollbar-corner { background: #f5f5f5; }
 
 .docs-desktop-sidebar { display: flex !important; }
 .docs-desktop-toc { display: flex !important; }

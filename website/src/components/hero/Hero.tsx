@@ -56,7 +56,8 @@ export function Hero() {
             <HeroPillButton />
             <LiquidMetalButton
               text="Documentation"
-              href="#docs"
+              href="/documentation/"
+              target="_blank"
               width={154}
               height={42}
             />

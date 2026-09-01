@@ -11,7 +11,7 @@ export interface WhatIsZenthProps {
 export function WhatIsZenth({ className = '' }: WhatIsZenthProps) {
   return (
     <section
-      id="what-is-zenth"
+      id="engine"
       className={`relative w-full py-16 sm:py-24 px-3 sm:px-10 xl:px-14 bg-[#0a0a0a] overflow-hidden ${className}`.trim()}
     >
       <div

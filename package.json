@@ -31,6 +31,7 @@
     "postpack": "tsx scripts/prepare_npm_readme.ts restore",
     "test": "tsx tests/run_all_tests.ts",
     "test:all": "tsx tests/run_all_tests.ts",
+    "verify": "tsx scripts/verify.ts",
     "start": "tsx src/cli.ts start",
     "zenth": "tsx src/cli.ts start",
     "onboard": "tsx src/cli.ts onboard",

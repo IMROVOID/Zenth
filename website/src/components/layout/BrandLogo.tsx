@@ -40,7 +40,7 @@ export function BrandLogo({
         </svg>
 
         <span
-          style={{ color: 'var(--docs-text-primary, rgb(242, 240, 236))' }}
+          style={{ color }}
           className="text-2xl font-bold tracking-widest uppercase font-mono transition-colors"
         >
           {name}

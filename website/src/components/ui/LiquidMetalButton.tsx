@@ -10,6 +10,8 @@ export interface LiquidMetalButtonProps {
   className?: string;
   width?: number;
   height?: number;
+  target?: string;
+  rel?: string;
   onClick?: () => void;
 }
 
@@ -19,6 +21,8 @@ export function LiquidMetalButton({
   className = '',
   width = 116,
   height = 38,
+  target,
+  rel,
   onClick,
 }: LiquidMetalButtonProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -75,6 +79,8 @@ export function LiquidMetalButton({
     return (
       <Link
         href={href}
+        target={target}
+        rel={target === '_blank' ? (rel || 'noopener noreferrer') : rel}
         className="inline-flex items-center justify-center flex-shrink-0 leading-none outline-none"
       >
         {content}

@@ -107,7 +107,7 @@ export const quickStartConfig: QuickStartConfig = {
     title: 'Looking for Deep Architecture & Strategy Guides?',
     description:
       'Explore full documentation on pluggable exchange feeds (Binance, Coinbase, OKX, Upbit, Bitget, XT.com), Supabase PostgreSQL RLS policies, Docker Compose multi-DB provisioning, SMA/RSI quantitative formulas, and multi-format exporters (PDF, DOCX, CSV, MD).',
-    docsUrl: '/documentation',
+    docsUrl: '/documentation/',
     githubUrl: 'https://github.com/IMROVOID/Zenth',
     features: [
       'Multi-Exchange Normalization & Fallbacks',

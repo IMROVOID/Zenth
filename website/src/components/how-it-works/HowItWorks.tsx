@@ -8,7 +8,7 @@ import { HowItWorksProps } from './types';
 export function HowItWorks({ className = '' }: HowItWorksProps) {
   return (
     <section
-      id="how-it-works"
+      id="exchanges"
       className={`relative w-full py-16 sm:py-24 px-3 sm:px-10 xl:px-14 bg-[#0a0a0a] overflow-hidden ${className}`.trim()}
     >
       {/* Background Decorative Ambient Radial Glow */}

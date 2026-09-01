@@ -35,7 +35,7 @@ export const faqConfig: FaqConfig = {
     githubLabel: 'GitHub Discussions',
     githubUrl: 'https://github.com/IMROVOID/Zenth/discussions',
     docsLabel: 'Visit Documentation',
-    docsUrl: 'https://github.com/IMROVOID/Zenth#architecture-and-project-structure',
+    docsUrl: '/documentation/',
   },
   items: [
     {

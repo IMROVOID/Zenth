@@ -1,0 +1,36 @@
+name: Zenth Automated CI & PR Verification
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+      - 'feat/**'
+      - 'fix/**'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    name: Run Comprehensive Test & Build Verification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install Root Dependencies
+        run: npm ci
+
+      - name: Install Website Dependencies
+        working-directory: website
+        run: npm ci
+
+      - name: Run Full Verification Suite (Typecheck, 14 Tests, Docs Theme, Line Limits, Next.js Build)
+        run: npm run verify

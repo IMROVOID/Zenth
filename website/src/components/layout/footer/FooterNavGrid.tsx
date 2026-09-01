@@ -16,23 +16,13 @@ function renderLinkItem(link: FooterLinkItem, onOpenLegalModal: (doc: 'privacy' 
     );
   }
 
-  if (link.isExternal) {
-    return (
-      <a
-        href={link.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-zinc-400 hover:text-white transition-colors text-xs font-mono group flex items-start gap-1.5"
-      >
-        <span className="text-zinc-600 group-hover:text-zinc-300 transition-colors mt-[1px] flex-shrink-0">›</span>
-        <span className="break-words leading-snug">{link.label}</span>
-      </a>
-    );
-  }
+  const isNewTab = link.isExternal || link.href.startsWith('http') || link.href.startsWith('/doc');
 
   return (
     <Link
       href={link.href}
+      target={isNewTab ? '_blank' : undefined}
+      rel={isNewTab ? 'noopener noreferrer' : undefined}
       className="text-zinc-400 hover:text-white transition-colors text-xs font-mono group flex items-start gap-1.5"
     >
       <span className="text-zinc-600 group-hover:text-zinc-300 transition-colors mt-[1px] flex-shrink-0">›</span>
