@@ -16,14 +16,15 @@ export const navItems: NavItem[] = [
   { label: 'Exchanges', href: '#exchanges', hasDropdown: false },
   { label: 'FAQ', href: '#faq', hasDropdown: false },
   { label: 'Contribute', href: 'https://github.com/IMROVOID/Zenth', hasDropdown: false },
-  { label: 'Docs', href: '#docs', hasDropdown: false },
+  { label: 'Docs', href: '/documentation/', hasDropdown: false },
 ];
 
 export const exchanges: ExchangeItem[] = [
-  { id: 'xt', name: 'XT.com', docsUrl: '/docs/reference/exchanges/#xt' },
-  { id: 'binance', name: 'Binance', docsUrl: '/docs/reference/exchanges/#binance' },
-  { id: 'coinbase', name: 'Coinbase', docsUrl: '/docs/reference/exchanges/#coinbase' },
-  { id: 'okx', name: 'OKX', docsUrl: '/docs/reference/exchanges/#okx' },
-  { id: 'upbit', name: 'Upbit', docsUrl: '/docs/reference/exchanges/#upbit' },
-  { id: 'bitget', name: 'Bitget', docsUrl: '/docs/reference/exchanges/#bitget' },
+  { id: 'xt', name: 'XT.com', docsUrl: '/documentation/market-feeds/' },
+  { id: 'binance', name: 'Binance', docsUrl: '/documentation/market-feeds/' },
+  { id: 'coinbase', name: 'Coinbase', docsUrl: '/documentation/market-feeds/' },
+  { id: 'okx', name: 'OKX', docsUrl: '/documentation/market-feeds/' },
+  { id: 'upbit', name: 'Upbit', docsUrl: '/documentation/market-feeds/' },
+  { id: 'bitget', name: 'Bitget', docsUrl: '/documentation/market-feeds/' },
 ];
+

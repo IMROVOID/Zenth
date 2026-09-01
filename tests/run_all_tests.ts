@@ -22,6 +22,7 @@ const testSuites = [
   { file: 'test_database_reset.ts', name: 'Database Wipe & Reset Functionality' },
   { file: 'test_env_config.ts', name: 'Environment Validator & Writer Across Backends' },
   { file: 'test_theme_presets.ts', name: 'Theme Presets & Palette Verification' },
+  { file: 'test_supabase_validator.ts', name: 'Supabase Credentials & RLS Validator' },
   { file: 'test_tui_command_flow.ts', name: 'TUI Command Execution Flow E2E' }
 ];
 

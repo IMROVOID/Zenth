@@ -1,0 +1,52 @@
+@keyframes heroCapsuleLoopDownIn { 0% { transform: translateY(-115%); opacity: 0; } 100% { transform: translateY(-0.04em); opacity: 1; } }
+@keyframes heroCapsuleLoopDownOut { 0% { transform: translateY(-0.04em); opacity: 1; } 100% { transform: translateY(115%); opacity: 0; } }
+.animate-capsule-loop-in { animation: heroCapsuleLoopDownIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-capsule-loop-out { animation: heroCapsuleLoopDownOut 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.hero-capsule-box {
+  background: 
+    radial-gradient(130% 120% at 50% 0%, rgb(30, 30, 35) 0%, rgb(17, 17, 20) 45%, rgb(8, 8, 10) 100%) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.03) 40%, transparent 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.85), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+@keyframes overlayFadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes overlayFadeOut { 0% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes modalSlideDownIn { 0% { opacity: 0; transform: translateY(-24px) scale(0.98); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes modalSlideUpOut { 0% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-24px) scale(0.98); } }
+@keyframes tabContentFade { 0% { opacity: 0; transform: translateY(0.375rem); } 100% { opacity: 1; transform: translateY(0); } }
+
+.animate-overlay-in { animation: overlayFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-overlay-out { animation: overlayFadeOut 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-modal-card-in { animation: modalSlideDownIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-modal-card-out { animation: modalSlideUpOut 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-tab-content { animation: tabContentFade 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+@keyframes startupHeaderDown { 0% { opacity: 0; transform: translateY(-14px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes startupHeroFadeUp { 0% { opacity: 0; transform: translateY(18px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes startupChartFadeIn { 0% { opacity: 0; transform: translateY(14px) scale(0.99); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+
+.animate-startup-header { animation: startupHeaderDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-startup-title { animation: startupHeroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both; }
+.animate-startup-desc { animation: startupHeroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both; }
+.animate-startup-cta { animation: startupHeroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both; }
+.animate-startup-chart { animation: startupChartFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.36s both; }
+
+@keyframes menuFadeIn { 0% { opacity: 0; transform: translateY(-8px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes menuFadeOut { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-8px); } }
+.animate-menu-in { animation: menuFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-menu-out { animation: menuFadeOut 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+@keyframes crtScanBeam { 0% { top: -20%; } 100% { top: 120%; } }
+.animate-crt-scan { animation: crtScanBeam 7s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-capsule-loop-in, .animate-capsule-loop-out, .animate-startup-header,
+  .animate-startup-title, .animate-startup-desc, .animate-startup-cta,
+  .animate-startup-chart, .animate-menu-in, .animate-menu-out, .animate-overlay-in,
+  .animate-overlay-out, .animate-modal-card-in, .animate-modal-card-out,
+  .animate-tab-content, .animate-crt-scan, html, body, header, aside, main, article, section, div, button, a, kbd, input, span, p, h1, h2, h3, h4, table, th, td, pre, code {
+    animation: none !important; opacity: 1 !important; transform: none !important; transition: none !important;
+  }
+}

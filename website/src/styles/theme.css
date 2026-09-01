@@ -1,0 +1,159 @@
+@layer base {
+  :root, html.dark, [data-theme="dark"] {
+    --background: rgb(16, 16, 16);
+    --foreground: rgb(242, 240, 236);
+    --radius-xl: 0.5rem;
+    --color-neutral-100: rgb(245, 245, 245);
+    --neutral-100: rgb(245, 245, 245);
+
+    --docs-bg-primary: rgb(16, 16, 16);
+    --docs-header-bg: rgba(16, 16, 16, 0.82);
+    --docs-bg-surface: rgb(20, 20, 20);
+    --docs-bg-elevated: rgb(15, 15, 15);
+    --docs-bg-card: rgb(20, 20, 20);
+    --docs-bg-card-gradient: radial-gradient(130% 120% at 50% 0%, rgb(30, 30, 30) 0%, rgb(20, 20, 20) 60%, rgb(10, 10, 10) 100%);
+    --docs-bg-card-footer-gradient: radial-gradient(130% 120% at 50% 0%, rgb(26, 26, 26) 0%, rgb(18, 18, 18) 50%, rgb(10, 10, 10) 100%);
+
+    --docs-text-primary: rgb(242, 240, 236);
+    --docs-text-secondary: rgb(196, 193, 187);
+    --docs-text-muted: rgb(133, 130, 126);
+    --docs-text-dim: rgb(96, 96, 96);
+
+    --docs-border: rgb(44, 44, 44);
+    --docs-border-subtle: rgb(38, 38, 38);
+    --docs-border-card: rgb(38, 38, 38);
+    --docs-border-hover: rgb(56, 56, 56);
+    --docs-logo-filter: invert(1);
+
+    --docs-input-bg: rgb(15, 15, 15);
+    --docs-input-placeholder: rgb(168, 165, 160);
+    --docs-input-text: rgb(232, 230, 226);
+
+    --docs-kbd-bg: rgb(37, 37, 37);
+    --docs-kbd-text: rgb(196, 193, 187);
+
+    --docs-code-bg: rgb(20, 20, 20);
+    --docs-code-header-bg: rgba(20, 20, 20, 0.9);
+    --docs-code-border: rgb(38, 38, 38);
+    --docs-code-text: rgb(229, 229, 229);
+
+    --docs-table-header-bg: rgb(22, 22, 22);
+    --docs-table-border: rgb(38, 38, 38);
+    --docs-table-row-hover: rgba(255, 255, 255, 0.03);
+
+    --docs-nav-link-color: rgb(240, 227, 222);
+    --docs-nav-link-hover-bg: rgb(36, 36, 36);
+    --docs-nav-link-active-bg: rgb(36, 36, 36);
+    --docs-category-heading-color: rgb(240, 227, 222);
+    --docs-category-heading-hover-bg: rgb(26, 26, 26);
+    --docs-category-heading-opacity: 0.45;
+
+    --docs-shadow-card: 0 10px 30px -4px rgba(0, 0, 0, 0.85), inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
+    --docs-shadow-modal: 0 25px 80px rgba(0, 0, 0, 0.95);
+    --docs-shadow-popover: 0 10px 30px rgba(0, 0, 0, 0.85);
+    --docs-specular-highlight: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.25) 50%, transparent 100%);
+    --docs-modal-overlay-bg: rgba(0, 0, 0, 0.95);
+    --docs-scrollbar-thumb: rgba(255, 255, 255, 0.16);
+    --docs-scrollbar-thumb-hover: rgba(255, 255, 255, 0.35);
+    --docs-selection-bg: rgb(51, 51, 51);
+    --docs-selection-text: rgb(255, 255, 255);
+    --docs-star-badge-bg: rgb(37, 37, 37);
+    --docs-docs-badge-bg: rgb(22, 22, 22);
+
+    --syntax-comment: rgb(135, 140, 148);
+    --syntax-command: rgb(56, 189, 248);
+    --syntax-keyword: rgb(192, 132, 252);
+    --syntax-flag: rgb(251, 191, 36);
+    --syntax-string: rgb(74, 222, 128);
+    --syntax-number: rgb(251, 146, 60);
+    --syntax-punctuation: rgb(160, 160, 160);
+  }
+
+  html.light, [data-theme="light"] {
+    --background: rgb(252, 252, 252);
+    --foreground: rgb(12, 12, 12);
+    --color-neutral-100: rgb(12, 12, 12);
+    --neutral-100: rgb(12, 12, 12);
+
+    --docs-bg-primary: rgb(252, 252, 252);
+    --docs-header-bg: rgba(252, 252, 252, 0.82);
+    --docs-bg-surface: rgb(255, 255, 255);
+    --docs-bg-elevated: rgb(255, 255, 255);
+    --docs-bg-card: rgb(255, 255, 255);
+    --docs-bg-card-gradient: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(249, 249, 249) 100%);
+    --docs-bg-card-footer-gradient: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(246, 246, 246) 100%);
+
+    --docs-text-primary: rgb(12, 12, 12);
+    --docs-text-secondary: rgb(115, 115, 115);
+    --docs-text-muted: rgb(140, 140, 140);
+    --docs-text-dim: rgb(160, 160, 160);
+
+    --docs-border: rgb(216, 216, 216);
+    --docs-border-subtle: rgb(228, 228, 228);
+    --docs-border-card: rgb(216, 216, 216);
+    --docs-border-hover: rgb(160, 160, 160);
+    --docs-logo-filter: invert(0);
+
+    --docs-input-bg: rgb(255, 255, 255);
+    --docs-input-placeholder: rgb(160, 160, 160);
+    --docs-input-text: rgb(12, 12, 12);
+
+    --docs-kbd-bg: rgb(240, 240, 240);
+    --docs-kbd-text: rgb(115, 115, 115);
+
+    --docs-code-bg: rgb(248, 248, 248);
+    --docs-code-header-bg: rgba(242, 242, 242, 0.95);
+    --docs-code-border: rgb(228, 228, 228);
+    --docs-code-text: rgb(12, 12, 12);
+
+    --docs-table-header-bg: rgb(245, 245, 245);
+    --docs-table-border: rgb(230, 230, 230);
+    --docs-table-row-hover: rgba(0, 0, 0, 0.025);
+
+    --docs-nav-link-color: rgb(115, 115, 115);
+    --docs-nav-link-hover-bg: rgba(0, 0, 0, 0.05);
+    --docs-nav-link-active-bg: rgba(0, 0, 0, 0.07);
+    --docs-category-heading-color: rgb(115, 115, 115);
+    --docs-category-heading-hover-bg: rgba(0, 0, 0, 0.04);
+    --docs-category-heading-opacity: 0.6;
+
+    --docs-shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    --docs-shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.08);
+    --docs-shadow-popover: 0 10px 25px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+    --docs-specular-highlight: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
+    --docs-modal-overlay-bg: rgba(0, 0, 0, 0.5);
+    --docs-scrollbar-thumb: rgba(0, 0, 0, 0.16);
+    --docs-scrollbar-thumb-hover: rgba(0, 0, 0, 0.35);
+    --docs-selection-bg: rgb(220, 220, 220);
+    --docs-selection-text: rgb(12, 12, 12);
+    --docs-star-badge-bg: rgb(240, 240, 240);
+    --docs-docs-badge-bg: rgb(240, 240, 240);
+
+    --syntax-comment: rgb(120, 125, 135);
+    --syntax-command: rgb(2, 132, 199);
+    --syntax-keyword: rgb(147, 51, 234);
+    --syntax-flag: rgb(202, 108, 0);
+    --syntax-string: rgb(22, 140, 60);
+    --syntax-number: rgb(215, 75, 10);
+    --syntax-punctuation: rgb(100, 100, 100);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--docs-bg-primary, rgb(16, 16, 16));
+    color: var(--docs-text-primary, rgb(242, 240, 236));
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  body {
+    min-height: 100%;
+    min-height: 100dvh;
+    background-color: var(--docs-bg-primary, rgb(16, 16, 16));
+    color: var(--docs-text-primary, rgb(242, 240, 236));
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+/* Smooth Theme Transitions across layout elements */
+html, body, header, aside, main, article, section, div, button, a, kbd, input, span, p, h1, h2, h3, h4, table, th, td, pre, code {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}

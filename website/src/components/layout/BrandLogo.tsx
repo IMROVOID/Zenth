@@ -3,24 +3,40 @@ import Link from 'next/link';
 
 export interface BrandLogoProps {
   name?: string;
+  href?: string;
   logoSrc?: string;
   className?: string;
 }
 
 export function BrandLogo({
   name = 'Zenth',
-  logoSrc = '/images/logo.svg',
+  href = '/documentation/',
+  logoSrc,
   className = '',
 }: BrandLogoProps) {
   return (
     <div className={`flex items-center ${className || 'z-10'}`.trim()}>
-      <Link href="/" className="flex items-center gap-2.5 group">
-        <img
-          src={logoSrc}
-          alt={`${name} Logo`}
-          className="w-6 h-6 object-contain invert"
-        />
-        <span className="text-2xl font-bold tracking-widest text-white uppercase font-mono">
+      <Link
+        href={href}
+        style={{ color: 'var(--docs-text-primary, rgb(242, 240, 236))' }}
+        className="flex items-center gap-2.5 group transition-colors"
+      >
+        {/* Crisp Vector Logo SVG inheriting exact text color */}
+        <svg
+          width="20"
+          height="25"
+          viewBox="0 0 25.583 32"
+          fill="currentColor"
+          className="w-5 h-6 transition-colors flex-shrink-0"
+        >
+          <path d="M0 6.417q6.389-.002 12.777.001l.026-.001a.6.6 0 0 1 .028.206q-.007 2.919.012 5.836.029.326-.212.546A675 675 0 0 0 8.4 17.233l-.081.087c-.507.514-1.397 1.336-1.828 1.844q-.074.137-.082.292.01 1.188.009 2.378v.163q-.009 1.707.015 3.412.035.156.193.167.603.009 1.206.005h3.502q.386.015.768-.028h.036a1 1 0 0 0 .277.028h.086c.098 0 .263.03.255-.122.002-1.999.072-4.019-.005-6.002q-.002-.31.242-.505a415 415 0 0 0 2.777-2.767l.082-.082.083-.084.083-.083.083-.083.083-.083.083-.083.083-.083.083-.083.084-.083.083-.082q1.177-1.178 2.363-2.347.244-.22.212-.548a2872 2872 0 0 1-.021-5.977q0-.067.064-.08 3.181.022 6.362.015v6.415a.4.4 0 0 0-.074.055.7.7 0 0 0-.112.094l-.083.082-.167.167-.083.083-.083.083-.082.084-.083.083-.084.083-.082.082a4 4 0 0 0-.167.167 1 1 0 0 0-.082.084l-.084.082a1 1 0 0 0-.084.082l-.082.084-.084.083-.082.083q-.087.08-.167.167l-.082.083a1 1 0 0 0-.083.082 3 3 0 0 0-.168.167l-.083.082-.082.083a3 3 0 0 0-.167.168 1 1 0 0 0-.082.083l-.084.082-.084.082-.083.083-.083.082-.082.083a9 9 0 0 0-.247.254 1 1 0 0 0-.085.081q-.089.079-.167.167l-.082.083-.083.082q-.089.079-.167.167l-.082.083-.083.082a3 3 0 0 0-.168.167l-.083.082-.083.083-.167.167-.082.082a10 10 0 0 0-.249.252l-.082.085a1 1 0 0 0-.084.082q-.089.08-.167.167a1 1 0 0 0-.082.084 1 1 0 0 0-.084.082 2 2 0 0 0-.167.168l-.083.082a1 1 0 0 0-.083.082 2 2 0 0 0-.167.167l-.084.082-.083.082q-.042.041-.08.087a2 2 0 0 0-.212.239q-.026.118.099.112h6.128v6.414q-6.35-.004-12.699.01a.12.12 0 0 0-.055.113q.008 3.143.001 6.286l-6.408.012q-.01-3.15.001-6.3.017-.077-.046-.122L.01 25.57v-6.403a1 1 0 0 0 .211-.166q3.059-3.05 6.09-6.122-.071-.066-.174-.048-3.063-.001-6.127.002z" />
+          <path d="M12.762.012q3.207.005 6.413.012-.015 3.093-.007 6.187a.3.3 0 0 1-.068.197l-.182.009-.503-.001h-5.413l-.087.001h-.112l-.026.001q.005-3.203-.014-6.406Z" />
+        </svg>
+
+        <span
+          style={{ color: 'var(--docs-text-primary, rgb(242, 240, 236))' }}
+          className="text-2xl font-bold tracking-widest uppercase font-mono transition-colors"
+        >
           {name}
         </span>
       </Link>

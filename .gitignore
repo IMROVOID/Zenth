@@ -21,7 +21,7 @@ data/
 *.sqlite
 
 # Agent, BMad, and internal AI documentation/configs
-docs/
+/docs/
 AGENTS.md
 .agent/
 .agents/
@@ -37,3 +37,8 @@ Thumbs.db
 # Website Next.js build and export artifacts
 website/.next/
 website/out/
+
+# Local task tracking
+todo.md
+.todo.json
+unstoppable-code.json

@@ -8,10 +8,11 @@ export interface ThemeConfig {
 }
 
 export const themeConfig: ThemeConfig = {
-  accentColor: '#2CE88A',
+  accentColor: 'rgb(44, 232, 138)',
   accentGlow: 'rgba(44, 232, 138, 0.22)',
-  backgroundColor: '#0a0a0a',
-  surfaceColor: '#0b0c0e',
-  textColor: '#ffffff',
-  mutedTextColor: '#888888',
+  backgroundColor: 'rgb(10, 10, 10)',
+  surfaceColor: 'rgb(11, 12, 14)',
+  textColor: 'rgb(255, 255, 255)',
+  mutedTextColor: 'rgb(136, 136, 136)',
 };
+
