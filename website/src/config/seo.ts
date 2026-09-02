@@ -1,6 +1,6 @@
 /** Canonical URL helpers and JSON-LD schema generators for Zenth. */
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://rovoid.github.io/Zenth';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://imrovoid.github.io/Zenth';
 const OG_IMAGE_URL = BASE_URL + '/images/og-image.jpg';
 
 export const seoMeta = {

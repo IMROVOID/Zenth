@@ -63,7 +63,7 @@ export interface SiteMetaConfig {
 
 export const siteMeta: SiteMetaConfig = {
   name: 'Zenth',
-  siteOrigin: 'https://rovoid.github.io',
+  siteOrigin: 'https://imrovoid.github.io',
   base: '/Zenth',
   version: '1.0.1',
   npmPackage: 'zenth',
