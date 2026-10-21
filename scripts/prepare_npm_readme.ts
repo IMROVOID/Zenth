@@ -1,8 +1,7 @@
 import fs from 'node:fs';
-import path from 'node:path';
 
-const readmePath = path.resolve('README.md');
-const backupPath = path.resolve('.README.project.bak');
+const readmePath = 'README.md';
+const backupPath = '.README.project.bak';
 
 export function prepareNpmReadme(): void {
   if (!fs.existsSync(readmePath)) return;

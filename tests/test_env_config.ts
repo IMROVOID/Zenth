@@ -1,13 +1,12 @@
 import assert from 'assert';
 import fs from 'fs';
-import path from 'path';
 import { EnvValidator } from '../src/core/config/envValidator.js';
 import { EnvWriter } from '../src/core/config/envWriter.js';
 import { OnboardingEnvConfig } from '../src/core/config/types.js';
 
 console.log('[TEST] Running EnvValidator & EnvWriter test suite...');
 
-const originalEnvPath = path.resolve(process.cwd(), '.env');
+const originalEnvPath = '.env';
 
 let hadOriginalEnv = false;
 let originalEnvContent = '';
@@ -130,6 +129,8 @@ try {
 } finally {
   if (hadOriginalEnv) {
     fs.writeFileSync(originalEnvPath, originalEnvContent, 'utf-8');
+  } else {
+    fs.rmSync(originalEnvPath, { force: true });
   }
 }
 

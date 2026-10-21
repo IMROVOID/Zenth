@@ -1,7 +1,7 @@
 import fs from 'fs';
-import path from 'path';
 import dotenv from 'dotenv';
 import { StorageBackendType } from './types.js';
+import { resolvePath } from '../paths/index.js';
 
 export interface EnvValidationStatus {
   hasEnvFile: boolean;
@@ -12,7 +12,8 @@ export interface EnvValidationStatus {
 
 export class EnvValidator {
   static getEnvPath(): string {
-    return path.resolve(process.cwd(), '.env');
+    const override = process.env.ZENTH_ENV_PATH;
+    return override ? resolvePath(override) : resolvePath('.env');
   }
 
   static checkEnv(): EnvValidationStatus {

@@ -5,6 +5,7 @@ import { DatabaseAdapter } from './databaseAdapter.js';
 import { AdaptiveLearning, SessionMetrics, StorageBackendType } from '../../types.js';
 import { LedgerEntry, ResetDatabaseResult } from '../types.js';
 import { SQLITE_SCHEMA_SQL } from '../../config/schemaSql.js';
+import { resolvePath, toRelativePath } from '../../paths/index.js';
 
 export class SQLiteAdapter implements DatabaseAdapter {
   readonly backendType: StorageBackendType = 'sqlite';
@@ -12,7 +13,7 @@ export class SQLiteAdapter implements DatabaseAdapter {
   private dbPath: string;
 
   constructor(customPath?: string) {
-    this.dbPath = customPath || process.env.SQLITE_DB_PATH || path.resolve(process.cwd(), 'data', 'zenth.db');
+    this.dbPath = customPath || process.env.SQLITE_DB_PATH || resolvePath('data', 'zenth.db');
   }
 
   async init(): Promise<void> {
@@ -164,7 +165,7 @@ export class SQLiteAdapter implements DatabaseAdapter {
       deletedLedger: Number(r1.changes),
       deletedLearnings: Number(r2.changes),
       deletedMetrics: Number(r3.changes),
-      message: `SQLite database wiped (${this.dbPath})`
+      message: `SQLite database wiped (${toRelativePath(this.dbPath)})`
     };
   }
 

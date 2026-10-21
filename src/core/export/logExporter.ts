@@ -4,9 +4,10 @@ import { ExportDataPayload, ExportFormat, ExportResult } from './types.js';
 import { DataFormatter } from './dataFormatter.js';
 import { DocxExporter } from './docxExporter.js';
 import { PdfExporter } from './pdfExporter.js';
+import { resolvePath, toRelativePath } from '../paths/index.js';
 
 export class LogExporter {
-  static normalizeFilePath(rawPath: string, format: ExportFormat): string {
+  static resolveTargetPath(rawPath: string, format: ExportFormat): string {
     let clean = rawPath.trim();
     if (!clean) {
       const ts = new Date().toISOString().replace(/[:.]/g, '-').substring(0, 19);
@@ -18,7 +19,11 @@ export class LogExporter {
       clean += ext;
     }
 
-    return path.resolve(process.cwd(), clean);
+    return resolvePath(clean);
+  }
+
+  static normalizeFilePath(rawPath: string, format: ExportFormat): string {
+    return toRelativePath(this.resolveTargetPath(rawPath, format));
   }
 
   static getDefaultFilename(format: ExportFormat): string {
@@ -30,8 +35,9 @@ export class LogExporter {
 
   static async exportToFile(payload: ExportDataPayload, format: ExportFormat, targetPath: string): Promise<ExportResult> {
     try {
-      const finalPath = this.normalizeFilePath(targetPath, format);
-      const parentDir = path.dirname(finalPath);
+      const absolutePath = this.resolveTargetPath(targetPath, format);
+      const finalPath = toRelativePath(absolutePath);
+      const parentDir = path.dirname(absolutePath);
 
       if (!fs.existsSync(parentDir)) {
         fs.mkdirSync(parentDir, { recursive: true });
@@ -40,27 +46,27 @@ export class LogExporter {
       switch (format) {
         case 'txt': {
           const content = DataFormatter.toPlainText(payload);
-          fs.writeFileSync(finalPath, content, 'utf-8');
+          fs.writeFileSync(absolutePath, content, 'utf-8');
           break;
         }
         case 'csv': {
           const content = DataFormatter.toCsv(payload);
-          fs.writeFileSync(finalPath, content, 'utf-8');
+          fs.writeFileSync(absolutePath, content, 'utf-8');
           break;
         }
         case 'md': {
           const content = DataFormatter.toMarkdown(payload);
-          fs.writeFileSync(finalPath, content, 'utf-8');
+          fs.writeFileSync(absolutePath, content, 'utf-8');
           break;
         }
         case 'docx': {
           const buffer = DocxExporter.generate(payload);
-          fs.writeFileSync(finalPath, buffer);
+          fs.writeFileSync(absolutePath, buffer);
           break;
         }
         case 'pdf': {
           const buffer = PdfExporter.generate(payload);
-          fs.writeFileSync(finalPath, buffer);
+          fs.writeFileSync(absolutePath, buffer);
           break;
         }
         default:

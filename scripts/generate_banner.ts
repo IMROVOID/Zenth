@@ -1,5 +1,4 @@
 import fs from 'node:fs';
-import path from 'node:path';
 
 // Pixel grid for "ZENTH" + Pixel Candlestick/Terminal Icon
 const pixelSize = 10;
@@ -157,11 +156,11 @@ ${rects}  </g>
   </text>
 </svg>`;
 
-  fs.mkdirSync(path.resolve('docs/assets'), { recursive: true });
-  fs.writeFileSync(path.resolve('docs/assets/zenth-banner.svg'), svg, 'utf-8');
+  fs.mkdirSync('docs/assets', { recursive: true });
+  fs.writeFileSync('docs/assets/zenth-banner.svg', svg, 'utf-8');
 
-  fs.mkdirSync(path.resolve('assets'), { recursive: true });
-  fs.writeFileSync(path.resolve('assets/zenth-banner.svg'), svg, 'utf-8');
+  fs.mkdirSync('assets', { recursive: true });
+  fs.writeFileSync('assets/zenth-banner.svg', svg, 'utf-8');
 
   console.log('✓ Generated docs/assets/zenth-banner.svg and assets/zenth-banner.svg');
 }

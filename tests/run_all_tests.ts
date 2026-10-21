@@ -1,5 +1,4 @@
 import { spawnSync } from 'node:child_process';
-import path from 'node:path';
 
 interface TestSuiteResult {
   file: string;
@@ -21,6 +20,7 @@ const testSuites = [
   { file: 'test_export_clipboard.ts', name: 'Export Formats (TXT/CSV/MD/DOCX/PDF) & Clipboard' },
   { file: 'test_database_reset.ts', name: 'Database Wipe & Reset Functionality' },
   { file: 'test_env_config.ts', name: 'Environment Validator & Writer Across Backends' },
+  { file: 'test_relative_paths.ts', name: 'Relative Path Contract (No Absolute Paths)' },
   { file: 'test_theme_presets.ts', name: 'Theme Presets & Palette Verification' },
   { file: 'test_supabase_validator.ts', name: 'Supabase Credentials & RLS Validator' },
   { file: 'test_tui_command_flow.ts', name: 'TUI Command Execution Flow E2E' }
@@ -34,7 +34,7 @@ const results: TestSuiteResult[] = [];
 let allPassed = true;
 
 for (const suite of testSuites) {
-  const filePath = path.join(process.cwd(), 'tests', suite.file);
+  const filePath = `tests/${suite.file}`;
   process.stdout.write(`[RUNNING] ${suite.name.padEnd(52, ' ')} ... `);
 
   const start = Date.now();

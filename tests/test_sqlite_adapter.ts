@@ -1,11 +1,10 @@
 import assert from 'node:assert';
 import fs from 'fs';
-import path from 'path';
 import { SQLiteAdapter } from '../src/core/memory/adapters/sqliteAdapter.js';
 
 async function runTest() {
   console.log('[TEST] Starting SQLiteAdapter test...');
-  const testDbPath = path.resolve(process.cwd(), 'data', 'test_zenth.db');
+  const testDbPath = 'data/test_zenth.db';
   if (fs.existsSync(testDbPath)) {
     fs.unlinkSync(testDbPath);
   }

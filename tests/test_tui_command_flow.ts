@@ -1,6 +1,5 @@
 import assert from 'node:assert';
 import fs from 'node:fs';
-import path from 'node:path';
 import { TuiState } from '../src/tui/state/tuiState.js';
 import { CommandExecutor, CommandExecutorContext } from '../src/tui/input/commandExecutor.js';
 import { KeyHandler } from '../src/tui/input/keyHandler.js';
@@ -144,7 +143,7 @@ async function runTuiCommandFlowTests() {
   await KeyHandler.handle('\r', dummyContext);
   assert(state.exportPromptState.active === false, 'Prompt closed after export');
 
-  const expectedPdfFile = path.resolve(process.cwd(), 'exported-logs', 'e2e_test.pdf');
+  const expectedPdfFile = 'exported-logs/e2e_test.pdf';
   assert(fs.existsSync(expectedPdfFile), `Exported PDF exists: ${expectedPdfFile}`);
   const pdfStat = fs.statSync(expectedPdfFile);
   assert(pdfStat.size > 200, `PDF size is valid (${pdfStat.size} bytes)`);

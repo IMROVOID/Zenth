@@ -10,7 +10,7 @@ console.log('===================================================================
 
 let failed = false;
 
-function runStep(name: string, command: string, cwd: string = process.cwd()) {
+function runStep(name: string, command: string, cwd: string = '.') {
   const start = Date.now();
   process.stdout.write(`[RUNNING] ${name.padEnd(55)} ... `);
   try {
@@ -69,13 +69,13 @@ function checkLineCeilings(dir: string, excludes: string[] = ['node_modules', '.
   runStep('Docs Theme & RGB Token Suite', 'npx tsx tests/test_docs_theme.ts');
 
   // 3. Source File Line Ceilings
-  checkLineCeilings(path.join(process.cwd(), 'website/src'));
+  checkLineCeilings('website/src');
 
   // 4. Next.js Website Static Production Build
-  runStep('Next.js Static Export Build', 'npm run build', path.join(process.cwd(), 'website'));
+  runStep('Next.js Static Export Build', 'npm run build', 'website');
 
   // 5. Master Trading Bot Test Suite
-  runStep('Master Trading Bot Test Suite (14 Suites)', 'npx tsx tests/run_all_tests.ts');
+  runStep('Master Trading Bot Test Suite (15 Suites)', 'npx tsx tests/run_all_tests.ts');
 
   console.log('\n' + '-'.repeat(82));
   if (failed) {

@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { DatabaseSync } from 'node:sqlite';
 import { SQLITE_SCHEMA_SQL } from './schemaSql.js';
+import { resolvePath, toRelativePath } from '../paths/index.js';
 
 export interface SqliteSetupResult {
   success: boolean;
@@ -12,7 +13,8 @@ export interface SqliteSetupResult {
 
 export class SqliteAutoSetup {
   static async provision(customPath?: string): Promise<SqliteSetupResult> {
-    const dbPath = customPath || path.resolve(process.cwd(), 'data', 'zenth.db');
+    const dbPath = customPath || resolvePath('data', 'zenth.db');
+    const displayPath = toRelativePath(dbPath);
     let db: DatabaseSync | null = null;
     try {
       const dir = path.dirname(dbPath);
@@ -33,7 +35,7 @@ export class SqliteAutoSetup {
       if (missing.length > 0) {
         return {
           success: false,
-          dbPath,
+          dbPath: displayPath,
           message: `SQLite schema creation incomplete. Missing tables: ${missing.join(', ')}`,
           error: 'MISSING_TABLES'
         };
@@ -41,13 +43,13 @@ export class SqliteAutoSetup {
 
       return {
         success: true,
-        dbPath,
-        message: `SQLite database auto-created and initialized at "${dbPath}"!`
+        dbPath: displayPath,
+        message: `SQLite database auto-created and initialized at "${displayPath}"!`
       };
     } catch (err: any) {
       return {
         success: false,
-        dbPath,
+        dbPath: displayPath,
         message: `Failed to initialize SQLite database: ${err.message}`,
         error: err.code || 'SQLITE_ERROR'
       };

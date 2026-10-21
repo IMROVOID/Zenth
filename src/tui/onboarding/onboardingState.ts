@@ -1,6 +1,14 @@
 import { OnboardingStep, OnboardingStateData } from './onboardingTypes.js';
 import { MarketService } from '../../core/market/marketService.js';
 import { StorageBackendType } from '../../core/config/types.js';
+import { toRelativeConfigPath } from '../../core/paths/index.js';
+
+const DEFAULT_SQLITE_PATH = './data/zenth.db';
+
+function configuredSqlitePath(): string {
+  const configured = process.env.SQLITE_DB_PATH;
+  return configured ? toRelativeConfigPath(configured) : DEFAULT_SQLITE_PATH;
+}
 
 export class OnboardingState {
   marketService = new MarketService((process.env.EXCHANGE as any) || 'binance');
@@ -9,7 +17,7 @@ export class OnboardingState {
     currentStep: 'STORAGE_CHOICE',
     selectedOptionIndex: 0,
     storageBackend: (process.env.STORAGE_BACKEND as StorageBackendType) || 'sqlite',
-    sqlitePath: process.env.SQLITE_DB_PATH || './data/zenth.db',
+    sqlitePath: configuredSqlitePath(),
     postgresSetupMode: 'auto',
     postgresHost: process.env.POSTGRES_HOST || 'localhost',
     postgresPort: process.env.POSTGRES_PORT || '5432',

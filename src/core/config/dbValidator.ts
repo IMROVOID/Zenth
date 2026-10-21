@@ -5,6 +5,7 @@ import pg from 'pg';
 import { MongoClient } from 'mongodb';
 import { DatabaseValidationResult, PostgresConfig, MongoConfig } from './types.js';
 import { SupabaseValidator } from './supabaseValidator.js';
+import { resolvePath, toRelativePath } from '../paths/index.js';
 
 const { Client } = pg;
 
@@ -12,7 +13,8 @@ export class DbValidator {
   static async validateSqlite(dbPath: string): Promise<DatabaseValidationResult> {
     let db: DatabaseSync | null = null;
     try {
-      const resolved = path.resolve(process.cwd(), dbPath);
+      const resolved = resolvePath(dbPath);
+      const displayPath = toRelativePath(resolved);
       const dir = path.dirname(resolved);
       if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 
@@ -34,7 +36,7 @@ export class DbValidator {
 
       return {
         status: 'SUCCESS',
-        message: `SQLite database verified at ${dbPath}! All 3 tables ready.`,
+        message: `SQLite database verified at ${displayPath}! All 3 tables ready.`,
         hasTables: true,
         suggestions: []
       };

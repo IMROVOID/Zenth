@@ -1,10 +1,16 @@
 import fs from 'fs';
-import path from 'path';
 import { OnboardingEnvConfig } from './types.js';
+import { resolvePath, toRelativeConfigPath } from '../paths/index.js';
 
 export class EnvWriter {
   static getEnvPath(): string {
-    return path.resolve(process.cwd(), '.env');
+    const override = process.env.ZENTH_ENV_PATH;
+    return override ? resolvePath(override) : resolvePath('.env');
+  }
+
+  /** A newline in a path would be read back as an extra .env variable. */
+  private static sanitizePath(value: string): string {
+    return value.replace(/[\r\n]+/g, ' ').trim();
   }
 
   static writeEnv(config: OnboardingEnvConfig): void {
@@ -22,7 +28,7 @@ export class EnvWriter {
 
     if (config.storageBackend === 'sqlite') {
       lines.push('# SQLite Local Database Configuration');
-      lines.push(`SQLITE_DB_PATH=${config.sqlitePath || './data/zenth.db'}`);
+      lines.push(`SQLITE_DB_PATH=${toRelativeConfigPath(this.sanitizePath(config.sqlitePath || './data/zenth.db'))}`);
     } else if (config.storageBackend === 'postgres') {
       lines.push('# PostgreSQL Local / Server Configuration');
       if (config.postgresUrl) {
@@ -64,9 +70,11 @@ export class EnvWriter {
     const envPath = this.getEnvPath();
     fs.writeFileSync(envPath, lines.join('\n'), 'utf-8');
 
+    const persistedSqlitePath = toRelativeConfigPath(this.sanitizePath(config.sqlitePath || './data/zenth.db'));
+
     // Synchronize current process.env in-memory
     process.env.STORAGE_BACKEND = config.storageBackend;
-    if (config.sqlitePath) process.env.SQLITE_DB_PATH = config.sqlitePath;
+    process.env.SQLITE_DB_PATH = persistedSqlitePath;
     if (config.postgresUrl) process.env.POSTGRES_URL = config.postgresUrl;
     if (config.postgresHost) process.env.POSTGRES_HOST = config.postgresHost;
     if (config.postgresPort) process.env.POSTGRES_PORT = String(config.postgresPort);

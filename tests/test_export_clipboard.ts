@@ -172,7 +172,7 @@ async function runTests() {
   console.log('✓ PDF exporter generated valid PDF 1.4 document');
 
   // Test 6: LogExporter export to disk for all 5 formats
-  const testDir = path.resolve(process.cwd(), 'exported-logs', 'test_run');
+  const testDir = 'exported-logs/test_run';
   const formats: ExportFormat[] = ['txt', 'csv', 'md', 'docx', 'pdf'];
 
   for (const fmt of formats) {
