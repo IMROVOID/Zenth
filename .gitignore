@@ -20,15 +20,6 @@ data/
 *.db
 *.sqlite
 
-# Agent, BMad, and internal AI documentation/configs
-/docs/
-AGENTS.md
-.agent/
-.agents/
-_bmad/
-_bmad-output/
-skills-lock.json
-
 # Operating System & IDE artifacts
 .DS_Store
 Thumbs.db
