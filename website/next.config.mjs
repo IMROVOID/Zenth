@@ -31,14 +31,22 @@ if (primaryIp && process.env.NODE_ENV !== 'production') {
 }
 
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
-const repoName = 'Zenth';
+function normalizeBasePath(raw) {
+  const trimmed = (raw || '').trim();
+  if (!trimmed || trimmed === '/') return '';
+  if (!/^\/[A-Za-z0-9._~-]+(\/[A-Za-z0-9._~-]+)*$/.test(trimmed)) {
+    throw new Error(`Invalid NEXT_PUBLIC_BASE_PATH: ${trimmed}`);
+  }
+  return trimmed;
+}
+
+const basePath = normalizeBasePath(process.env.NEXT_PUBLIC_BASE_PATH);
 
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
-  basePath: isProd ? `/${repoName}` : '',
-  assetPrefix: isProd ? `/${repoName}/` : '',
+  basePath,
+  assetPrefix: basePath ? `${basePath}/` : '',
   images: {
     unoptimized: true,
   },

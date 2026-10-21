@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { searchDocs, type DocSearchResult } from '@/config/docs';
+import { withBasePath } from '@/config/sitePaths';
 
 export interface DocsSearchModalProps {
   isOpen: boolean;
@@ -67,7 +68,9 @@ export function DocsSearchModal({ isOpen, onClose }: DocsSearchModalProps) {
       const target = results[selectedIndex];
       if (target) {
         handleSmoothClose();
-        const url = target.sectionId ? `/documentation/${target.slug}/#${target.sectionId}` : `/documentation/${target.slug}/`;
+        const url = target.sectionId
+          ? withBasePath(`/documentation/${target.slug}/#${target.sectionId}`)
+          : withBasePath(`/documentation/${target.slug}/`);
         router.push(url);
       }
     }

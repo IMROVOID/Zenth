@@ -1,17 +1,17 @@
 /** Asset path helpers for GitHub Pages deployment with basePath. */
 
-const isProd = process.env.NODE_ENV === 'production';
-const BASE_PATH = isProd ? '/Zenth' : '';
+import { BASE_PATH, withBasePath } from './sitePaths';
 
 export function assetPath(path: string): string {
-  const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  return `${BASE_PATH}${cleanPath}`;
+  return withBasePath(path);
 }
 
 export function imagePath(name: string): string {
-  return assetPath(`/images/${name}`);
+  return withBasePath(`/images/${name}`);
 }
 
 export function videoPath(name: string): string {
-  return assetPath(`/videos/${name}`);
+  return withBasePath(`/videos/${name}`);
 }
+
+export { BASE_PATH };

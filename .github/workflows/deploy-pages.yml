@@ -35,6 +35,9 @@ jobs:
 
       - name: Build Next.js static export
         working-directory: website
+        env:
+          NEXT_PUBLIC_SITE_URL: https://zenth.rovoid.tech
+          NEXT_PUBLIC_BASE_PATH: ''
         run: npm run build
 
       - name: Upload GitHub Pages artifact

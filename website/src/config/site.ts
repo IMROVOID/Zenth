@@ -1,4 +1,5 @@
 import { assetPath } from './assets';
+import { BASE_PATH, SITE_ORIGIN } from './sitePaths';
 
 export interface HeroConfig {
   badgeText: string;
@@ -63,8 +64,8 @@ export interface SiteMetaConfig {
 
 export const siteMeta: SiteMetaConfig = {
   name: 'Zenth',
-  siteOrigin: 'https://imrovoid.github.io',
-  base: '/Zenth',
+  siteOrigin: SITE_ORIGIN,
+  base: BASE_PATH,
   version: '1.0.1',
   npmPackage: 'zenth',
   installCommand: 'npm i -g zenth',
