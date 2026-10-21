@@ -46,11 +46,24 @@ async function runTests() {
   }
   console.log('  [PASS] Test 1b: Config paths round-trip to the same location.');
 
-  // 1c. A displayed path is never absolute, even across drives
-  for (const target of ['exported-logs/r.pdf', 'C:\\Users\\me\\out.pdf', 'D:\\other\\out.pdf']) {
-    assertNotAbsolute(toRelativePath(resolvePath(target)), `toRelativePath(${target})`);
+  // 1c. A displayed path is never absolute, whatever the host platform is
+  const displayTargets = [
+    resolvePath('exported-logs/r.pdf'),
+    resolvePath('../outside/r.pdf'),
+    'C:\\Users\\me\\out.pdf',
+    'D:\\other\\out.pdf',
+    '\\\\server\\share\\out.pdf',
+    '\\\\?\\C:\\long\\out.pdf',
+    '/mnt/other/out.pdf'
+  ];
+  for (const target of displayTargets) {
+    assertNotAbsolute(toRelativePath(target), `toRelativePath(${target})`);
   }
-  console.log('  [PASS] Test 1c: Displayed paths are never absolute.');
+  assert.ok(
+    toRelativePath('C:\\Users\\me\\out.pdf').endsWith('out.pdf'),
+    'A path from another drive must keep its leaf name'
+  );
+  console.log('  [PASS] Test 1c: Displayed paths are never absolute on any host platform.');
 
   // 2. Export paths are reported relative
   const exported = LogExporter.normalizeFilePath('exported-logs/contract_check', 'pdf');
